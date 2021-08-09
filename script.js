@@ -26,5 +26,6 @@ const criacaoTabela = () =>{
         }
     }
 }
+
 criacaoTabela()
 //FUNÇÕES
