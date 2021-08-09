@@ -3,6 +3,16 @@ const tabela = document.querySelector('#tabela')
 //VARIAVEIS GLOBAIS
 
 //FUNÇÕES
+const vitoriaJogador1 = () => {
+    const divVitoria = document.querySelector('#vitoriaJogador1')
+    divVitoria.classList.remove('hidden')
+}
+
+const vitoriaJogador2 = () => {
+    const divVitoria = document.querySelector('#vitoriaJogador2')
+    divVitoria.classList.remove('hidden')
+}
+
 const criacaoTabela = () =>{
     for(let coluna = 0; coluna < 7; coluna++){
             let novaColuna = document.createElement('div')
