@@ -91,7 +91,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1rem;
     color: var(--cor-main);
 }
 
@@ -110,6 +110,10 @@ footer {
 
     #tabela {
         width: 60%;
+    }
+    
+    footer {
+        font-size: 2rem;
     }
 }
 
