@@ -70,6 +70,10 @@ main #tabela {
     border: 1px solid black;
 }
 
+.vitoria {
+    margin-top: 4%;
+}
+
 .hidden {
     display: none;
 }
