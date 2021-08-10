@@ -125,8 +125,6 @@ main {
 }
 .esconder{
     background-color: var(--backgWhite);
-    /* opacity: 0.7; */
-
 }
 .regras__title{
     font-size: 1.2rem;
