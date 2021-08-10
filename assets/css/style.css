@@ -78,7 +78,10 @@ main {
     justify-content: center;
     align-items: center;
 }
-
+#reset{
+    margin-top: 20px;
+ 
+}
 .vitoria {
     margin-top: 4%;
 }
