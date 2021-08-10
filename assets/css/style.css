@@ -24,15 +24,25 @@ html {
 }
 /* ANIMATION */
 
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* HEADER */
 
-header{
+header {
     width: 100%;
-    height: 6vh;
-    text-align: center;
+    height: 6%;
     background-color: var(--cor-header);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-header h1{
+header h1 {
     line-height: 6vh;
     font-size: 2rem;
     color: var(--cor-main);
@@ -40,33 +50,25 @@ header h1{
 
 /* HEADER */
 
-/* FOOTER */
 
-footer{
-    width: 100%;
-    height: 6vh;
-    text-align: center;
-    background-color: var(--cor-footer);
-}
-
-/* FOOTER */
 
 /* MAIN */
 
-main{
-    width: 100%;
-    height: 88vh;
+main {
+    width: 80%;
+    height: 88%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
-main #tabela {
+#tabela {
     display: flex;
     margin: 0 auto;
-    width: 700px;
-    height: 600px;
+    width: 100%;
+    height: 50%;
     
 }
 
@@ -79,7 +81,7 @@ main #tabela {
 
 .celulas {
     width: 100%;
-    height: 100px;
+    height: calc(100%/6);
     border: 1px solid black;
     display: flex;
     justify-content: center;
@@ -94,8 +96,8 @@ main #tabela {
     display: none;
 }
 .disco{
-    width: 80px;
-    height: 80px;
+    width: 90%;
+    height: 90%;
     border-radius: 150px;
     animation: moveDown 1s;
 }
@@ -107,3 +109,40 @@ main #tabela {
 }
 
 /* MAIN */
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    height: 6%;
+    background-color: var(--cor-footer);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--cor-main);
+}
+
+/* FOOTER */
+
+/* MEDIA */
+
+@media screen and (min-width:321px) and (max-width:720px){
+    
+}
+
+@media screen and (min-width:721px){
+    main {
+        width: 50%;
+    }
+
+    #tabela {
+        width: 60%;
+    }
+    
+    footer {
+        font-size: 2rem;
+    }
+}
+
+/* MEDIA */
