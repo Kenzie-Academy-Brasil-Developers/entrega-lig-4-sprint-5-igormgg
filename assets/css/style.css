@@ -55,7 +55,7 @@ main {
 
 #tabela {
     display: flex;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 224px;
     height: 192px;
     
@@ -87,7 +87,7 @@ main {
     width: 90%;
     height: 90%;
     border-radius: 150px;
-    animation: moveDown 0.5s;
+    animation: moveDown 1s;
 }
 .jogador1{
     background-color: var(--colorDiscoPlayerUm);
@@ -95,8 +95,15 @@ main {
 .jogador2{
     background-color: var(--colorDiscoPlayerDois);
 }
-.cheio{
-    animation: esquerda linear 0.8ms;
+.vibracao{
+    animation: vibracao 0.1s;
+    animation-iteration-count: 3;
+}
+.fade{
+    animation: fade 0.5s ease-in-out;
+}
+.fadeIn{
+    animation: fadeIn 0.5s ease-in-out;
 }
 .regras{
     margin: 0 auto;
@@ -117,7 +124,7 @@ main {
 
 }
 .esconder{
-    background-color: var(--backBlack);
+    background-color: var(--backgWhite);
     /* opacity: 0.7; */
 
 }
@@ -188,14 +195,6 @@ footer {
     footer {
         font-size: 2rem;
     }
-    @keyframes esquerda {
-        to{
-            margin-left: 130px;
-        }
-        from{
-            margin-left: -30px;
-        }
-    }
 }
 
 /* MEDIA */
@@ -218,14 +217,30 @@ footer {
         top: -300px;
     }
 }
-@keyframes esquerda {
-    to{
-        margin-left: 7px;
+@keyframes vibracao {
+    0% {
+        margin-left: 0;
     }
-    from{
+    25%{
+        margin-left: 5px;
+    }
+    50%{
+        margin-left: 0;
+    }
+    75%{
         margin-left: -5px;
     }
+    100%{
+        margin-left: 0;
+    }
 }
-
+@keyframes fade {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@keyframes fadeIn {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 
 /* ANIMATIONS */

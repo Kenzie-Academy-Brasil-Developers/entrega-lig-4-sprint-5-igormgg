@@ -15,16 +15,15 @@ const vitoriaJogador2 = () => {
 }
 const colunaCheia = () =>{
     let busca = document.getElementById('tabela');
-    busca.classList.add('cheio');
         navigator.vibrate(200);//teste em mobiles
+        busca.classList.add('vibracao');
         setTimeout(function(){
-            busca.classList.remove('cheio')
-        },500);
-        
+            busca.classList.remove('vibracao');
+        },200);
 }
 const criarDisco = (destino,player) =>{
     let disco = document.createElement('div');
-        disco.classList.add('disco') 
+        disco.classList.add('disco');
         player%2 !== 0? disco.classList.add('jogador1') : disco.classList.add('jogador2');
         destino.appendChild(disco);
         return true;
@@ -38,7 +37,7 @@ const colocarDisco = (evt) =>{
         arr = arr.reverse();
         if(primeiraCelula.firstElementChild !== null){
             colunaCheia();
-            return false
+            return false;
         }
         for(let i=0;i<arr.length;i++){
             if(arr[i].lastElementChild == null){
@@ -55,12 +54,16 @@ const bemVindo = () =>{
     let buttonJogar = document.querySelector('.btn__jogar');
     let busca = document.querySelector('.regras');
     let buscaBody = document.getElementsByTagName('body')[0];
-        buscaBody.classList.add('esconder')
+        buscaBody.classList.add('esconder');
         busca.classList.remove('hidden');
         buttonJogar.addEventListener('click',function(){
-        buscaBody.classList.remove('esconder')
-        busca.classList.add('hidden');
-        criacaoTabela()
+            buscaBody.classList.add('fade');
+            setTimeout(function(){
+                buscaBody.classList.remove('esconder');
+                busca.classList.add('hidden');
+                buscaBody.classList.add('fadeIn')
+                criacaoTabela();    
+            },500);
         } );
 }
 const jogada = (evt) =>{
