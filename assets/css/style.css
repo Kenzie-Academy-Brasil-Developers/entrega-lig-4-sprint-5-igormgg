@@ -87,7 +87,7 @@ main {
     width: 90%;
     height: 90%;
     border-radius: 150px;
-    animation: moveDown 1s;
+    animation: moveDown 0.5s;
 }
 .jogador1{
     background-color: var(--colorDiscoPlayerUm);
@@ -95,11 +95,14 @@ main {
 .jogador2{
     background-color: var(--colorDiscoPlayerDois);
 }
+.cheio{
+    animation: esquerda linear 0.8ms;
+}
 .regras{
     margin: 0 auto;
     width: 80vw;
     max-width: 500px;
-    height: 200px;
+    height: 300px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -119,10 +122,23 @@ main {
 
 }
 .regras__title{
-
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 .regras__conteudo{
 
+}
+.regras__lista{
+    padding: 5px;
+}
+.regras__item{
+    padding: 5px;
+}
+.regras__p{
+    padding: 5px 0px 10px 0px;
+}
+.btn{
+    padding: 0px 10px 0px 10px;
 }
 
 /* MAIN */
@@ -156,6 +172,7 @@ footer {
         width: 500px;
         height: 428.57px;
     }
+    
 }
 
 @media screen and (min-width:1025px){
@@ -170,6 +187,14 @@ footer {
     
     footer {
         font-size: 2rem;
+    }
+    @keyframes esquerda {
+        to{
+            margin-left: 130px;
+        }
+        from{
+            margin-left: -30px;
+        }
     }
 }
 
@@ -193,4 +218,14 @@ footer {
         top: -300px;
     }
 }
+@keyframes esquerda {
+    to{
+        margin-left: 7px;
+    }
+    from{
+        margin-left: -5px;
+    }
+}
+
+
 /* ANIMATIONS */
