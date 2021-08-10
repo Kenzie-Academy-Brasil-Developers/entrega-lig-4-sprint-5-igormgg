@@ -7,6 +7,8 @@
 
     --colorDiscoPlayerUm: #fc0000;
     --colorDiscoPlayerDois: #000000;
+    --backgWhite : #ffffff;
+    --backBlack : #000000;
 }
 
 html {
@@ -38,11 +40,7 @@ header h1 {
     font-size: 2rem;
     color: var(--cor-main);
 }
-
 /* HEADER */
-
-
-
 /* MAIN */
 
 main {
@@ -78,7 +76,6 @@ main {
     justify-content: center;
     align-items: center;
 }
-
 .vitoria {
     margin-top: 4%;
 }
@@ -97,6 +94,35 @@ main {
 }
 .jogador2{
     background-color: var(--colorDiscoPlayerDois);
+}
+.regras{
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 500px;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #000;
+    position: absolute;
+    background-color: var(--backgWhite);
+    animation: moveModal linear 0.7s;
+    top: 60px;
+
+}
+.esconder{
+    background-color: var(--backBlack);
+    /* opacity: 0.7; */
+
+}
+.regras__title{
+
+}
+.regras__conteudo{
+
 }
 
 /* MAIN */
@@ -159,5 +185,12 @@ footer {
         margin-bottom: 900px;
     }    
 }
-
+@keyframes moveModal {
+    to{
+        top: 60px;
+    }
+    from{
+        top: -300px;
+    }
+}
 /* ANIMATIONS */
