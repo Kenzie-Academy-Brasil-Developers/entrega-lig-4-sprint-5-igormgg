@@ -90,13 +90,16 @@ main {
     width: 90%;
     height: 90%;
     border-radius: 150px;
-    animation: moveDown 1s;
+    animation: moveDown 0.5s;
 }
 .jogador1{
     background-color: var(--colorDiscoPlayerUm);
 }
 .jogador2{
     background-color: var(--colorDiscoPlayerDois);
+}
+.cheio{
+    animation: esquerda linear 1ms;
 }
 
 /* MAIN */
@@ -130,6 +133,7 @@ footer {
         width: 500px;
         height: 428.57px;
     }
+    
 }
 
 @media screen and (min-width:1025px){
@@ -145,6 +149,14 @@ footer {
     footer {
         font-size: 2rem;
     }
+    @keyframes esquerda {
+        to{
+            margin-left: 130px;
+        }
+        from{
+            margin-left: -30px;
+        }
+    }
 }
 
 /* MEDIA */
@@ -159,5 +171,14 @@ footer {
         margin-bottom: 900px;
     }    
 }
+@keyframes esquerda {
+    to{
+        margin-left: 7px;
+    }
+    from{
+        margin-left: -5px;
+    }
+}
+
 
 /* ANIMATIONS */
