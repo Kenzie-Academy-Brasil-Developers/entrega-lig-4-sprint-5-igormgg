@@ -4,6 +4,7 @@ let player = 1;
 //VARIAVEIS GLOBAIS
 
 //FUNÇÕES
+
 const vitoriaJogador1 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')

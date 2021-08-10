@@ -13,16 +13,6 @@ html {
     width: 100vw;
     height: 100vh;
 }
-/* ANIMATION */
-@keyframes moveDown {
-    to{
-        margin-bottom: 0px;
-    }
-    from{
-        margin-bottom: 900px;
-    }    
-}
-/* ANIMATION */
 
 body {
     width: 100%;
@@ -42,6 +32,7 @@ header {
     justify-content: center;
     align-items: center;
 }
+
 header h1 {
     line-height: 6vh;
     font-size: 2rem;
@@ -67,8 +58,8 @@ main {
 #tabela {
     display: flex;
     margin: 0 auto;
-    width: 100%;
-    height: 50%;
+    width: 224px;
+    height: 192px;
     
 }
 
@@ -128,16 +119,27 @@ footer {
 /* MEDIA */
 
 @media screen and (min-width:321px) and (max-width:720px){
-    
+    #tabela {
+        width: 288px;
+        height: 246.86px;
+    }
 }
 
-@media screen and (min-width:721px){
+@media screen and (min-width:721px) and (max-width:1024px){
+    #tabela {
+        width: 500px;
+        height: 428.57px;
+    }
+}
+
+@media screen and (min-width:1025px){
     main {
         width: 50%;
     }
 
     #tabela {
-        width: 60%;
+        width: 700px;
+        height: 600px;
     }
     
     footer {
@@ -146,3 +148,16 @@ footer {
 }
 
 /* MEDIA */
+
+/* ANIMATIONS */
+
+@keyframes moveDown {
+    to{
+        margin-bottom: 0px;
+    }
+    from{
+        margin-bottom: 900px;
+    }    
+}
+
+/* ANIMATIONS */
