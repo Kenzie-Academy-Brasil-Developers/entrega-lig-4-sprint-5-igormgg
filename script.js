@@ -9,17 +9,16 @@ const vitoriaJogador1 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
 }
-
 const vitoriaJogador2 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
 const colunaCheia = () =>{
-    let query = document.getElementById('tabela');
-        query.classList.add('cheio');
+    let busca = document.getElementById('tabela');
+    busca.classList.add('cheio');
         navigator.vibrate(200);//teste em mobiles
         setTimeout(function(){
-            query.classList.remove('cheio')
+            busca.classList.remove('cheio')
         },500);
         
 }
@@ -30,6 +29,7 @@ const criarDisco = (destino,player) =>{
         destino.appendChild(disco);
         return true;
 }
+
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
