@@ -111,7 +111,7 @@ main {
 .fadeIn{
     animation: fadeIn 0.5s ease-in-out;
 }
-.conteudo__regras{
+#conteudo__regras{
     position: absolute;
     background-color: var(--backgWhite);
     top: 0px;
