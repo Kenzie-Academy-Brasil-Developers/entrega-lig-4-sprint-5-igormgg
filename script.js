@@ -33,12 +33,27 @@ const colocarDisco = (evt) =>{
             i=arr.length;
         }
        }
-    status = criarDisco(destino,player);
-    if(status == true){
-        player++;
-    }else{
-        alert('error: Recarregue a pagina');//depois mudar para um modal
-    }
+        status = criarDisco(destino,player);
+        if(status == true){
+            player++;
+        }
+}
+const bemVindo = () =>{
+    let buttonJogar = document.querySelector('.btn__jogar');
+    let busca = document.querySelector('#conteudo__regras');
+    let buscaBody = document.getElementsByTagName('body')[0];
+        buscaBody.classList.add('esconder');
+        buttonJogar.addEventListener('click',function(){
+            buscaBody.classList.add('fade');
+            setTimeout(function(){
+                buscaBody.classList.remove('esconder');
+                busca.classList.add('hidden');
+                buscaBody.classList.add('fadeIn');    
+            },500);
+        } );
+}
+const jogada = (evt) =>{
+    colocarDisco(evt);
 }
 
 const criacaoTabela = () =>{ 
@@ -70,9 +85,6 @@ const reset = () => {
         element.remove()
     });
 }
-
-criacaoTabela()
-//FUNÇÕES
 
 const testeDeVitoria = (jogadorTurno) =>{
 
@@ -403,3 +415,7 @@ if(
 //apartir da posição linha1xcoluna6
 
 }
+
+bemVindo();
+criacaoTabela();
+//FUNÇÕES

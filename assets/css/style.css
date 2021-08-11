@@ -7,6 +7,15 @@
 
     --colorDiscoPlayerUm: #fc0000;
     --colorDiscoPlayerDois: #000000;
+    --backgWhite : #ffffff;
+    --backBlack : #000000;
+
+    /* Segue abaixo a paleta de cores escolhida pra combinar com o tema */
+    --orange: #e76a24;
+    --yellow: #fbbc42;
+    --green: #1f5c10;
+    --platinum: #e7e5e8;
+    --black: #000000;
 }
 
 html {
@@ -51,16 +60,25 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 4%;
     margin-bottom: 4%;
 }
 
+#containerTabela {
+    width: 100%;
+    position: relative;
+    padding-top: 85.7142857%;
+}
+
 #tabela {
     display: flex;
-    margin: 0 auto;
-    width: 224px;
-    height: 192px;
-    
+    width: 100%;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .colunas {
@@ -101,6 +119,63 @@ main {
 .jogador2{
     background-color: var(--colorDiscoPlayerDois);
 }
+.vibracao{
+    animation: vibracao 0.1s;
+    animation-iteration-count: 3;
+}
+.fade{
+    animation: fade 0.5s ease-in-out;
+}
+.fadeIn{
+    animation: fadeIn 0.5s ease-in-out;
+}
+#conteudo__regras{
+    position: absolute;
+    background-color: var(--backgWhite);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.regras{
+    width: 80vw;
+    max-width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 200px;
+    
+}
+.disativado{
+    display: none;
+}
+.esconder{
+    background-color: var(--backgWhite);
+}
+.regras__title{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.regras__conteudo{
+
+}
+.regras__lista{
+    padding: 5px;
+}
+.regras__item{
+    padding: 5px;
+}
+.regras__p{
+    padding: 5px 0px 10px 0px;
+}
+.btn{
+    padding: 0px 10px 0px 10px;
+}
 
 /* MAIN */
 
@@ -122,27 +197,17 @@ footer {
 /* MEDIA */
 
 @media screen and (min-width:321px) and (max-width:720px){
-    #tabela {
-        width: 288px;
-        height: 246.86px;
-    }
+
 }
 
 @media screen and (min-width:721px) and (max-width:1024px){
-    #tabela {
-        width: 500px;
-        height: 428.57px;
-    }
+  
 }
 
 @media screen and (min-width:1025px){
     main {
         width: 50%;
-    }
-
-    #tabela {
-        width: 700px;
-        height: 600px;
+        max-width: 750px;
     }
     
     footer {
