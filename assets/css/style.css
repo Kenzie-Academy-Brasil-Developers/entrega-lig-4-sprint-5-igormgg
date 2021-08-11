@@ -47,7 +47,11 @@ header h1 {
     font-size: 2rem;
     color: var(--cor-main);
 }
+
 /* HEADER */
+
+
+
 /* MAIN */
 
 main {
@@ -92,12 +96,10 @@ main {
     justify-content: center;
     align-items: center;
 }
-
 #reset{
     margin-top: 20px;
  
 }
-
 .vitoria {
     margin-top: 4%;
 }
@@ -199,7 +201,7 @@ footer {
 }
 
 @media screen and (min-width:721px) and (max-width:1024px){
-    
+  
 }
 
 @media screen and (min-width:1025px){
@@ -224,39 +226,6 @@ footer {
     from{
         margin-bottom: 900px;
     }    
-}
-@keyframes moveModal {
-    to{
-        top: 60px;
-    }
-    from{
-        top: -300px;
-    }
-}
-@keyframes vibracao {
-    0% {
-        margin-left: 0;
-    }
-    25%{
-        margin-left: 5px;
-    }
-    50%{
-        margin-left: 0;
-    }
-    75%{
-        margin-left: -5px;
-    }
-    100%{
-        margin-left: 0;
-    }
-}
-@keyframes fade {
-    0%{opacity: 1;}
-    100%{opacity: 0;}
-}
-@keyframes fadeIn {
-    0%{opacity: 0;}
-    100%{opacity: 1;}
 }
 
 /* ANIMATIONS */
