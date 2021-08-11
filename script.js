@@ -61,8 +61,7 @@ const bemVindo = () =>{
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
-                buscaBody.classList.add('fadeIn')
-                criacaoTabela();    
+                buscaBody.classList.add('fadeIn');    
             },500);
         } );
 }
@@ -89,5 +88,5 @@ const criacaoTabela = () =>{
 }
 
 bemVindo();
-
+criacaoTabela();
 //FUNÇÕES
