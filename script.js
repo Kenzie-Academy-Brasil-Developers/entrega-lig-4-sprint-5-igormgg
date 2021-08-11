@@ -1,5 +1,6 @@
 //VARIAVEIS GLOBAIS
 const tabela = document.querySelector('#tabela')
+const btnReset = document.querySelector('#reset')
 let player = 1;
 //VARIAVEIS GLOBAIS
 
@@ -86,6 +87,14 @@ const criacaoTabela = () =>{
             novaColuna.appendChild(novaCelula)   
         }
     }
+    btnReset.addEventListener('click',reset)
+}
+const reset = () => {
+    const resetAll = document.querySelectorAll('.disco');
+    player = 1;
+    resetAll.forEach(element => {
+        element.remove()
+    });
 }
 
 bemVindo();
