@@ -64,6 +64,10 @@ header h1 {
 
 /* MAIN */
 
+@font-face {
+    font-family: 'pacman';
+    src: url("../fonts/Saiyan-Sans.ttf");
+}
 main {
     width: 80%;
     height: 88%;
