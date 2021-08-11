@@ -49,16 +49,25 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 4%;
     margin-bottom: 4%;
 }
 
+#containerTabela {
+    width: 100%;
+    position: relative;
+    padding-top: 85.7142857%;
+}
+
 #tabela {
     display: flex;
-    /* margin: 0 auto; */
-    width: 224px;
-    height: 192px;
-    
+    width: 100%;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .colunas {
@@ -172,28 +181,17 @@ footer {
 /* MEDIA */
 
 @media screen and (min-width:321px) and (max-width:720px){
-    #tabela {
-        width: 288px;
-        height: 246.86px;
-    }
+
 }
 
 @media screen and (min-width:721px) and (max-width:1024px){
-    #tabela {
-        width: 500px;
-        height: 428.57px;
-    }
     
 }
 
 @media screen and (min-width:1025px){
     main {
         width: 50%;
-    }
-
-    #tabela {
-        width: 700px;
-        height: 600px;
+        max-width: 750px;
     }
     
     footer {
