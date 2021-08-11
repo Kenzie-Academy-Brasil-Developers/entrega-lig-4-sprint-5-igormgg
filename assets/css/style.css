@@ -111,7 +111,18 @@ main div .hidden {
 .fadeIn{
     animation: fadeIn 0.5s ease-in-out;
 }
+.conteudo__regras{
+    position: absolute;
+    background-color: var(--backgWhite);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
 .regras{
+    width: 80vw;
+    max-width: 500px;
+    height: 300px;
     margin: 0 auto;
     border-radius: 5px;
     display: flex;
@@ -119,13 +130,8 @@ main div .hidden {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 1px solid #000;
-    position: absolute;
-    background-color: var(--backgWhite);
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
+    margin-top: 200px;
+    
 }
 .esconder{
     background-color: var(--backgWhite);
