@@ -44,11 +44,14 @@ const bemVindo = () =>{
     let buscaBody = document.getElementsByTagName('body')[0];
         buscaBody.classList.add('esconder');
         buttonJogar.addEventListener('click',function(){
+            music()
             buscaBody.classList.add('fade');
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
-                buscaBody.classList.add('fadeIn');    
+                buscaBody.classList.add('fadeIn'); 
+                criacaoTabela();
+
             },500);
         } );
 }
@@ -84,6 +87,10 @@ const reset = () => {
     resetAll.forEach(element => {
         element.remove()
     });
+}
+const music = () => {
+    const audio = document.querySelector('audio')
+    audio.play()
 }
 
 const testeDeVitoria = (jogadorTurno) =>{
@@ -417,5 +424,4 @@ if(
 }
 
 bemVindo();
-criacaoTabela();
 //FUNÇÕES
