@@ -53,7 +53,7 @@ const colocarDisco = (evt) =>{
 }
 const bemVindo = () =>{
     let buttonJogar = document.querySelector('.btn__jogar');
-    let busca = document.querySelector('.regras');
+    let busca = document.querySelector('.conteudo__regras');
     let buscaBody = document.getElementsByTagName('body')[0];
         buscaBody.classList.add('esconder');
         busca.classList.remove('hidden');
@@ -62,8 +62,7 @@ const bemVindo = () =>{
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
-                buscaBody.classList.add('fadeIn')
-                criacaoTabela();    
+                buscaBody.classList.add('fadeIn');    
             },500);
         } );
 }
@@ -98,5 +97,5 @@ const reset = () => {
 }
 
 bemVindo();
-
+criacaoTabela();
 //FUNÇÕES
