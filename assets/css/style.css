@@ -9,6 +9,13 @@
     --colorDiscoPlayerDois: #000000;
     --backgWhite : #ffffff;
     --backBlack : #000000;
+
+    /* Segue abaixo a paleta de cores escolhida pra combinar com o tema */
+    --orange: #e76a24;
+    --yellow: #fbbc42;
+    --green: #1f5c10;
+    --platinum: #e7e5e8;
+    --black: #000000;
 }
 
 html {
