@@ -53,7 +53,7 @@ const colocarDisco = (evt) =>{
 }
 const bemVindo = () =>{
     let buttonJogar = document.querySelector('.btn__jogar');
-    let busca = document.querySelector('.conteudo_regras');
+    let busca = document.querySelector('#conteudo__regras');
     let buscaBody = document.getElementsByTagName('body')[0];
         buscaBody.classList.add('esconder');
         buttonJogar.addEventListener('click',function(){
