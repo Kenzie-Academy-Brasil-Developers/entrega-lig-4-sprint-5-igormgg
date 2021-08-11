@@ -21,7 +21,7 @@ const criarDisco = (destino,player) =>{
         disco.classList.add('disco') 
         player%2 !== 0? disco.classList.add('jogador1') : disco.classList.add('jogador2');
         destino.appendChild(disco);
-        teste()
+        atribuicaoTestagem()
         return true;
 }
 const colocarDisco = (evt) =>{
@@ -67,7 +67,7 @@ const criacaoTabela = () =>{
     }
 }
 
-const teste = () => {
+const atribuicaoTestagem = () => {
     let coluna = vitoria.dataset.coluna
     let celula = vitoria.dataset.celula
     let convColuna = Number(coluna)
@@ -199,6 +199,9 @@ const testeVerticalDireito = (coluna,celula) => {
     }
     //cod para diagonal iniciada na coluna 0 celula 5
 
+// //------------------------------------------------------------------------------------------------------------------------------
+
+// //------------------------------------------------------------------------------------------------------------------------------
 
     //cod para diagonal iniciada na coluna 1 celula 5
     if(coluna === 1 && celula === 5){
@@ -233,7 +236,7 @@ const testeVerticalDireito = (coluna,celula) => {
 
 //------------------------------------------------------------------------------------------------------------------------------
 
-    //cod para diagonal iniciada na coluna 2 celula 0
+    //cod para diagonal iniciada na coluna 2 celula 5
     if(coluna === 2 && celula === 5){
         validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
     }
@@ -254,13 +257,13 @@ const testeVerticalDireito = (coluna,celula) => {
     if(coluna === 6 && celula === 1){
         validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
     }
-    //cod para diagonal iniciada na coluna 2 celula 0
+    //cod para diagonal iniciada na coluna 2 celula 5
 
 //------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------
 
-    //cod para diagonal iniciada na coluna 3 celula 0
+    //cod para diagonal iniciada na coluna 3 celula 5
     if(coluna === 3 && celula === 5){
         validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
     }
@@ -273,7 +276,7 @@ const testeVerticalDireito = (coluna,celula) => {
     if(coluna === 6 && celula === 2){
         validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
     }
-    //cod para diagonal iniciada na coluna 3 celula 0
+    //cod para diagonal iniciada na coluna 3 celula 5
 
 
 
@@ -281,153 +284,157 @@ const testeVerticalDireito = (coluna,celula) => {
 
 const testeVerticalEsquerdo = (coluna,celula) => {
 
-    //cod para diagonal iniciada na coluna 0 celula 3
-    if(coluna === 0 && celula === 3){
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
-    }
-    if(coluna === 1 && celula === 2){
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-    }
-    if(coluna === 2 && celula === 1){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-    }
-    if(coluna === 3 && celula === 0){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-    }
-    //cod para diagonal iniciada na coluna 0 celula 3
-//------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------
-
-    //cod para diagonal iniciada na coluna 0 celula 4
-    if(coluna === 0 && celula === 4){
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
+    //cod para diagonal iniciada na coluna 0 celula 2
+    if(coluna === 0 && celula === 2){
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
     }
     if(coluna === 1 && celula === 3){
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
-    }
-    if(coluna === 2 && celula === 2){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-
-    }
-    if(coluna === 3 && celula === 1){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-
-    }
-    if(coluna === 4 && celula === 0){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-    }
-    //cod para diagonal iniciada na coluna 0 celula 4
-
-//------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------
-
-    //cod para diagonal iniciada na coluna 0 celula 5
-    if(coluna === 0 && celula === 5){
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
-    }
-    if(coluna === 1 && celula === 4){
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
-    }
-    if(coluna === 2 && celula === 3){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
-
-    }
-    if(coluna === 3 && celula === 2){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-    }
-    if(coluna === 4 && celula === 1){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-
-    }
-    if(coluna === 5 && celula === 0){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-    }
-    //cod para diagonal iniciada na coluna 0 celula 5
-
-
-    //cod para diagonal iniciada na coluna 1 celula 5
-    if(coluna === 1 && celula === 5){
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
     }
     if(coluna === 2 && celula === 4){
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
     }
-    if(coluna === 3 && celula === 3){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
-
+    if(coluna === 3 && celula === 5){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
     }
-    if(coluna === 4 && celula === 2){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-    }
-    if(coluna === 5 && celula === 1){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-
-    }
-    if(coluna === 6 && celula === 0){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-    }
-    //cod para diagonal iniciada na coluna 1 celula 5
-
+    //cod para diagonal iniciada na coluna 0 celula 3
 //------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------
 
-    //cod para diagonal iniciada na coluna 2 celula 0
-    if(coluna === 2 && celula === 5){
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
+//     //cod para diagonal iniciada na coluna 0 celula 1
+    if(coluna === 0 && celula === 1){
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 1 && celula === 2){
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 2 && celula === 3){
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+
     }
     if(coluna === 3 && celula === 4){
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+
+    }
+    if(coluna === 4 && celula === 5){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+    }
+    //cod para diagonal iniciada na coluna 0 celula 1
+
+// //------------------------------------------------------------------------------------------------------------------------------
+
+// //------------------------------------------------------------------------------------------------------------------------------
+
+    //cod para diagonal iniciada na coluna 0 celula 0
+    if(coluna === 0 && celula === 0){
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 1 && celula === 1){
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 2 && celula === 2){
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+
+    }
+    if(coluna === 3 && celula === 3){
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+    }
+    if(coluna === 4 && celula === 4){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+
+    }
+    if(coluna === 5 && celula === 5){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+    }
+    //cod para diagonal iniciada na coluna 0 celula 0
+
+
+// //------------------------------------------------------------------------------------------------------------------------------
+
+// //------------------------------------------------------------------------------------------------------------------------------
+
+    //cod para diagonal iniciada na coluna 1 celula 0
+    if(coluna === 1 && celula === 0){
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna-3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 2 && celula === 1){
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 3 && celula === 2){
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+
     }
     if(coluna === 4 && celula === 3){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+    }
+    if(coluna === 5 && celula === 4){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
 
     }
-    if(coluna === 5 && celula === 2){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
+    if(coluna === 6 && celula === 5){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+    }
+    //cod para diagonal iniciada na coluna 1 celula 0
+
+// //------------------------------------------------------------------------------------------------------------------------------
+
+// //------------------------------------------------------------------------------------------------------------------------------
+
+    //cod para diagonal iniciada na coluna 2 celula 0
+    if(coluna === 2 && celula === 0){
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 3 && celula === 1){
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
+    }
+    if(coluna === 4 && celula === 2){
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
 
     }
-    if(coluna === 6 && celula === 1){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
+    if(coluna === 5 && celula === 3){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
+
+    }
+    if(coluna === 6 && celula === 4){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
     }
     //cod para diagonal iniciada na coluna 2 celula 0
 
-//------------------------------------------------------------------------------------------------------------------------------
+// //------------------------------------------------------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------------------------------------------------------
+// //------------------------------------------------------------------------------------------------------------------------------
 
     //cod para diagonal iniciada na coluna 3 celula 0
-    if(coluna === 3 && celula === 5){
-        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula-1,celula-2,celula-3)
+    if(coluna === 3 && celula === 0){
+        validacaoVitoria(coluna,coluna+1,coluna+2,coluna+3,celula,celula+1,celula+2,celula+3)
     }
-    if(coluna === 4 && celula === 4){
-        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula+1,celula,celula-1,celula-2)
+    if(coluna === 4 && celula === 1){
+        validacaoVitoria(coluna-1,coluna,coluna+1,coluna+2,celula-1,celula,celula+1,celula+2)
     }
-    if(coluna === 5 && celula === 3){
-        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula+2,celula+1,celula,celula-1)
+    if(coluna === 5 && celula === 2){
+        validacaoVitoria(coluna-2,coluna-1,coluna,coluna+1,celula-2,celula-1,celula,celula+1)
     }
-    if(coluna === 6 && celula === 2){
-        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula+3,celula+2,celula+1,celula)
+    if(coluna === 6 && celula === 3){
+        validacaoVitoria(coluna-3,coluna-2,coluna-1,coluna,celula-3,celula-2,celula-1,celula)
     }
     //cod para diagonal iniciada na coluna 3 celula 0
 
