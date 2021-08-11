@@ -75,7 +75,7 @@ const teste = () => {
    
     testeColuna(convColuna,convCelula)
     testeLinha(convColuna,convCelula)
-    testeVerticalEsquerdo(convColuna,convCelula)
+    testeVerticalDireito(convColuna,convCelula)
 }
 const testeColuna = (coluna,celula) => {
     
@@ -122,7 +122,7 @@ const testeLinha = (coluna,celula) =>{
     }
          
 }
-const testeVerticalEsquerdo = (coluna,celula) => {
+const testeVerticalDireito = (coluna,celula) => {
 
     //cod para diagonal iniciada na coluna 0 celula 3
     if(coluna === 0 && celula === 3){
