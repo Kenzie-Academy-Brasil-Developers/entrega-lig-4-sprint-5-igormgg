@@ -271,9 +271,7 @@ img.button__iniciar{
     font-weight: bold;
     color: var(--colorFontWhite);
 }
-.regras__conteudo{
 
-}
 .regras__lista{
     padding: 5px;
 }
@@ -480,5 +478,26 @@ footer {
     100%{
         transform: translateY(0px);
     }
+}
+#joga1{
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 10% ;
+    z-index: 1;
+    background-color: blue;
+    height: 30px;
+    width: 10%;
+    
+}
+#joga2{
+    display: none;
+    position: absolute;
+    top: 30%;
+    right: 10% ;
+    z-index: -1;
+    background-color: #1f5c10;
+    height: 30px;
+    width:10% ;
 }
 /* ANIMATIONS */
