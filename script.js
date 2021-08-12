@@ -1,6 +1,7 @@
 //VARIAVEIS GLOBAIS
 const tabela = document.querySelector('#tabela')
 const btnReset = document.querySelector('#reset')
+const audio = document.querySelectorAll('audio')
 let player = 1;
 let play1 =document.createElement('p')
 play1.id ='joga1'
@@ -8,7 +9,11 @@ document.body.appendChild(play1);
 let play2 =document.createElement('p')
 play2.id ='joga2'
 document.body.appendChild(play2);
+
 //VARIAVEIS GLOBAIS
+
+
+//FUNÇÕES
 const turnoJogador =() =>{
 if( play1.style.display==='block'){
     play1.style.display='none'
@@ -18,7 +23,7 @@ if( play1.style.display==='block'){
     play2.style.display='none'
 }
 }
-//FUNÇÕES
+
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
@@ -32,9 +37,13 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
             countTwo++;
         }
         if(countOne == 4){
-            return vitoriaJogador1();
+            console.log('vitoriaJogador1')
+            return true;
+            // return vitoriaJogador1();
         }else if(countTwo == 4){
-            return vitoriaJogador2();
+            console.log('vitoriaJogador2')
+            return true
+            // return vitoriaJogador2();
         }
     }
 }
@@ -106,24 +115,27 @@ const checaDiagonalEsquerda = () =>{
     let mapa = mapear();
         mapa.reverse();
        for(let i=0;i<mapa.length-3;i++){
-        resultado = percorrerLinha(mapa,i); 
+        resultado = percorrerLinha(mapa,i);
+        if(resultado==true){
+            i=mapa.length-3;
+        }
        }
-    return resultado;
 }
 const checaDiagonalDireita = () => {
-    let resultado = '';
+    let resultado = undefined;
     let mapa = mapear();
        for(let i=0;i<mapa.length-3;i++){
         resultado = percorrerLinha(mapa,i); 
+        if(resultado==true){
+            i=mapa.length-3;
+        }
        }      
-    return resultado;
 }
-//xondição de empate
+//condição de empate
 const testaEmpate = (evt) =>{
  let contador =0;
 
     for(let linha=0;linha<6;linha++){
-
         for(let coluna=0;coluna<7;coluna++){
 
          let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
@@ -147,11 +159,8 @@ const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
     let contadorJogador2=0;
     for(let linha=0;linha<6;linha++){
-
         for(let coluna=0;coluna<7;coluna++){
-
-        let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
-         
+         let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
          if(teste.firstChild===null){
         contadorJogador2=0;
         contadorJogador1=0;
@@ -170,6 +179,7 @@ const buscarElementlinha = (evt) =>{
                 console.log("jogador2 ganhou")
             }
         
+            }
         }
       
     }   contadorJogador2=0;
@@ -178,9 +188,7 @@ const buscarElementlinha = (evt) =>{
 }
 
 //busca os elementos por coluna
-
 const buscarElementColuna = (evt)=>{
-    
     let pai = evt.currentTarget.parentElement;
     let elements = [...pai.childNodes];
     let jogadores=[];
@@ -194,22 +202,16 @@ const buscarElementColuna = (evt)=>{
                     jogadores[coluna].unshift(status.classList[1])
                                
                     elementoColunatest(jogadores[coluna])
-                }
-               
+                }          
                 } 
-        }
     }
-
+}
 const elementoColunatest =(jogador)=>{
-
 let contador1=0;
 let contador2=0;
-
     for(let contador=0;contador<jogador.length;contador++) 
-    
     if(jogador[contador]=='jogador1'){
         contador1++;
-        
         contador2=0;
     }else if(jogador[contador]=="jogador2"){
         contador2++
@@ -220,17 +222,29 @@ let contador2=0;
     }else
     if(contador2===4){
         console.log("jogador2 venceu")
-
-}
+    }
 }
 //fim da busca dos elementos por coluna
 
 const vitoriaJogador1 = () => {
-    const divVitoria = document.querySelector('#vitoriaJogador1')
+    audio[0].pause()
+    audio[1].play()
+    audio[2].play()
+    audio[2].volume = 0.1;
+    setTimeout(() => {
+        audio[2].volume = 0.4;
+    }, 1700);
+    const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
-
 const vitoriaJogador2 = () => {
+    audio[0].pause()
+    audio[1].play()
+    audio[2].play()
+    audio[2].volume = 0.1;
+    setTimeout(() => {
+        audio[2].volume = 0.4;
+    }, 1700);
     const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
@@ -244,16 +258,14 @@ const criarDisco = (destino,player) =>{
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
-    let arr = [...evt.currentTarget.childNodes];
-  
+    let arr = [...evt.currentTarget.childNodes]; 
         arr = arr.reverse();
        for(let i=0;i<arr.length;i++){
         if(arr[i].lastElementChild == null){
             destino = arr[i];
             i=arr.length;
         }        
-       }
-  
+       } 
     status = criarDisco(destino,player);
     if(status == true){
         player++;
@@ -261,6 +273,8 @@ const colocarDisco = (evt) =>{
     
     buscarElementlinha(evt);
     buscarElementColuna(evt);
+    checaDiagonalDireita()
+    checaDiagonalEsquerda();
     testaEmpate(evt);
     turnoJogador();
 }
@@ -285,7 +299,6 @@ const bemVindo = () =>{
 const jogada = (evt) =>{
     colocarDisco(evt);
 }
-
 const criacaoTabela = () =>{ 
   
     for(let coluna = 0; coluna < 7; coluna++){
@@ -300,8 +313,7 @@ const criacaoTabela = () =>{
             novaCelula.classList.add('celulas')
             novaCelula.dataset.coluna = `${coluna}`
             novaCelula.dataset.celula = `${celula}`
-            novaColuna.appendChild(novaCelula)
-           
+            novaColuna.appendChild(novaCelula);          
         }
     }  
    
@@ -316,19 +328,16 @@ const reset = () => {
     play1.style.display ='block';
     play2.style.display ='none';
 }
-
 const alternarAnimacaoNuvem = () =>{
-    let query = document.querySelector('.button__iniciar ')
-        query.classList.remove('nuvemChegada')
-        query.classList.add('voar')
+    let query = document.querySelector('.button__iniciar ');
+        query.classList.remove('nuvemChegada');
+        query.classList.add('voar');
 } 
-setTimeout(()=>{alternarAnimacaoNuvem()},2000 )
+setTimeout(()=>{alternarAnimacaoNuvem()},2000 );
 const music = () => {
-    const audio = document.querySelector('audio')
-    audio.play()
+    audio[0].play()
+    audio[0].volume = 0.1;
 }
-
 //FUNÇÕES
-
-criacaoTabela()
+criacaoTabela();
 bemVindo();
