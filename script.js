@@ -18,9 +18,9 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
             countTwo++;
         }
         if(countOne == 4){
-            return console.log('jogador1 venceu');
+            return vitoriaJogador1();
         }else if(countTwo == 4){
-            return console.log('jogador2 venceu');
+            return vitoriaJogador2();
         }
     }
 }
