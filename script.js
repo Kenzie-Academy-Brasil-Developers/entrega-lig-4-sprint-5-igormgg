@@ -5,32 +5,37 @@ let player = 1;
 
 //VARIAVEIS GLOBAIS
 
-//FUNÇÕES
+
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
-    let contadorJogador1=0
-    let contadorJogador2=0
-            
+    let contadorJogador1=0;
+    let contadorJogador2=0;
     for(let linha=0;linha<6;linha++){
 
         for(let coluna=0;coluna<7;coluna++){
 
-            let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
-            if(teste.firstChild!==null){
-            let  valores= teste.firstChild.classList[1]
-            
+         let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
+         
+         if(teste.firstChild===null){
+          contadorJogador2=0;
+          contadorJogador1=0;
+         }else if(teste.firstChild!==null){  
+         let  valores= teste.firstChild.classList[1];
             if(valores=='jogador1'){
             contadorJogador1++;
+            console.log("jogador 1: "+contadorJogador1)
             contadorJogador2=0;                
             }else if(valores=='jogador2'){
                 contadorJogador2++;
-                contadorJogador1=0;
+                console.log("jogador2 :"+contadorJogador2)
+                contadorJogador1-=contadorJogador1;
             }
             if(contadorJogador1===4){
                 console.log("jogador1 ganhou")
             }else if(contadorJogador2===4){
                 console.log("jogador2 ganhou")
             }
+        
         }
     }
 }
@@ -60,23 +65,23 @@ const buscarElementColuna = (evt)=>{
 
 const elementoColunatest =(jogador)=>{
 
-let contadorJogador1=0;
-let contadorJogador2=0;
+let contador1=0;
+let contador2=0;
 
     for(let contador=0;contador<jogador.length;contador++) 
     
     if(jogador[contador]=='jogador1'){
-        contadorJogador1++;
+        contador1++;
         
-        contadorJogador2=0;
+        contador2=0;
     }else if(jogador[contador]=="jogador2"){
-        contadorJogador2++
-        contadorJogador1=0;                       
+        contador2++
+        contador1=0;                       
     }
-    if(contadorJogador1===4){
+    if(contador1===4){
             console.log("jogador1 venceu!")
     }else
-    if(contadorJogador2===4){
+    if(contador2===4){
         console.log("jogador2 venceu")
 
 }
