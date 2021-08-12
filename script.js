@@ -105,6 +105,30 @@ const checaDiagonalDireita = () => {
        }      
     return resultado;
 }
+//condição de empate
+const testaEmpate = (evt) =>{
+ let contador =0;
+
+    for(let linha=0;linha<6;linha++){
+
+        for(let coluna=0;coluna<7;coluna++){
+
+         let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
+         
+         if(teste.firstChild===null){
+            contador =0;
+         }else if(teste.firstChild!==null){  
+            contador++
+        }
+        if(contador===42){
+            empateJogadores()
+        }
+    }
+}
+}
+const empateJogadores =() =>{
+    console.log("empate")
+}
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
@@ -204,10 +228,12 @@ const colocarDisco = (evt) =>{
     if(status == true){
         player++;
     }
+    
     buscarElementlinha(evt);
     buscarElementColuna(evt);
     checaDiagonalDireita()
     checaDiagonalEsquerda();
+    setTimeout(()=>{testaEmpate(evt)},1500 );
 }
 const bemVindo = () =>{
     let buttonJogar = document.querySelector('.btn__jogar');
