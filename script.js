@@ -3,6 +3,7 @@ const tabela = document.querySelector('#tabela')
 const btnReset = document.querySelector('#reset')
 let player = 1;
 //VARIAVEIS GLOBAIS
+
 //FUNÇÕES
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
@@ -119,6 +120,7 @@ const buscarElement = (evt)=>{
             }
         }
     }
+    //primeiro ele testa a checaDiagonalDireita se nao ouver ganhador testa a checaDiagonalEsquerda
     let resultado = undefined;
         resultado = checaDiagonalDireita(jogadores);
         if(resultado == undefined){
@@ -230,7 +232,8 @@ const reset = () => {
         element.remove()
     });
 }
+//FUNÇÕES
 bemVindo();
 criacaoTabela();
-//FUNÇÕES
+
 
