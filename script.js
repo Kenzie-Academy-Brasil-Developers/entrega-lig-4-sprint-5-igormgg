@@ -185,7 +185,6 @@ const buscarElementlinha = (evt) =>{
     }   contadorJogador2=0;
         contadorJogador1=0;
 }
-}
 
 //busca os elementos por coluna
 const buscarElementColuna = (evt)=>{
