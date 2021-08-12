@@ -17,9 +17,11 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
             countTwo++;
         }
         if(countOne == 4){
-            return vitoriaJogador1();
+            console.log('vitoriaJogador1')
+            // return vitoriaJogador1();
         }else if(countTwo == 4){
-            return vitoriaJogador2();
+            console.log('vitoriaJogador1')
+            // return vitoriaJogador2();
         }
     }
 }
