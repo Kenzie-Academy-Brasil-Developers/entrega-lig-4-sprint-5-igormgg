@@ -352,6 +352,8 @@ footer {
         font-size: 2rem;
     }
     #conteudo__regras{
+        background: #f95801;
+
         background-repeat: no-repeat;
         background-image: var(--bg-img-fullsize-home);
         background-position: center;
