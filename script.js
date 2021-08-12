@@ -105,7 +105,30 @@ const checaDiagonalDireita = () => {
        }      
     return resultado;
 }
+//xondição de empate
+const testaEmpate = (evt) =>{
+ let contador =0;
 
+    for(let linha=0;linha<6;linha++){
+
+        for(let coluna=0;coluna<7;coluna++){
+
+         let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
+         
+         if(teste.firstChild===null){
+            contador =0;
+         }else if(teste.firstChild!==null){  
+            contador++
+        }
+        if(contador===42){
+            empateJogadores()
+        }
+    }
+}
+}
+const empateJogadores =() =>{
+    console.log("empate")
+}
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
@@ -123,11 +146,11 @@ const buscarElementlinha = (evt) =>{
          let  valores= teste.firstChild.classList[1];
             if(valores=='jogador1'){
             contadorJogador1++;
-            console.log("jogador 1: "+contadorJogador1)
+
             contadorJogador2=0;                
             }else if(valores=='jogador2'){
                 contadorJogador2++;
-                console.log("jogador2 :"+contadorJogador2)
+
                 contadorJogador1-=contadorJogador1;
             }
             if(contadorJogador1===4){
@@ -222,8 +245,10 @@ const colocarDisco = (evt) =>{
     if(status == true){
         player++;
     }
+    
     buscarElementlinha(evt);
     buscarElementColuna(evt);
+    setTimeout(()=>{testaEmpate(evt)},1500 );
 }
 const bemVindo = () =>{
     let buttonJogar = document.querySelector('.btn__jogar');
