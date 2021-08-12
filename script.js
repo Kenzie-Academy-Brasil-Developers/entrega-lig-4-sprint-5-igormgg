@@ -1,6 +1,8 @@
 //VARIAVEIS GLOBAIS
 const tabela = document.querySelector('#tabela')
 const btnReset = document.querySelector('#reset')
+const audio = document.querySelectorAll('audio')
+
 let player = 1;
 //VARIAVEIS GLOBAIS
 //FUNÇÕES
@@ -200,10 +202,24 @@ let contador2=0;
 }
 //fim da busca dos elementos por coluna
 const vitoriaJogador1 = () => {
-    const divVitoria = document.querySelector('#vitoriaJogador1')
+    audio[0].pause()
+    audio[1].play()
+    audio[2].play()
+    audio[2].volume = 0.1;
+    setTimeout(() => {
+        audio[2].volume = 0.4;
+    }, 1700);
+    const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
 const vitoriaJogador2 = () => {
+    audio[0].pause()
+    audio[1].play()
+    audio[2].play()
+    audio[2].volume = 0.1;
+    setTimeout(() => {
+        audio[2].volume = 0.4;
+    }, 1700);
     const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
@@ -288,8 +304,8 @@ const alternarAnimacaoNuvem = () =>{
 } 
 setTimeout(()=>{alternarAnimacaoNuvem()},2000 );
 const music = () => {
-    const audio = document.querySelector('audio');
-    audio.play();
+    audio[0].play()
+    audio[0].volume = 0.1;
 }
 //FUNÇÕES
 criacaoTabela();
