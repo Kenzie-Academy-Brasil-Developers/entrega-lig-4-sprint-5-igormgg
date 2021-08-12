@@ -116,12 +116,32 @@ const colocarDisco = (evt) =>{
             i=arr.length;
         }        
        }
+  
     status = criarDisco(destino,player);
     if(status == true){
         player++;
     }
-    buscarElementlinha(evt)
+    buscarElementlinha(evt);
     buscarElementColuna(evt);
+}
+const bemVindo = () =>{
+    let buttonJogar = document.querySelector('.btn__jogar');
+    let busca = document.querySelector('#conteudo__regras');
+    let buscaBody = document.getElementsByTagName('body')[0];
+        buscaBody.classList.add('esconder');
+        buttonJogar.addEventListener('click',function(){
+            music()
+            buscaBody.classList.add('fade');
+            setTimeout(function(){
+                buscaBody.classList.remove('esconder');
+                busca.classList.add('hidden');
+                buscaBody.classList.add('fadeIn'); 
+
+            },500);
+        } );
+}
+const jogada = (evt) =>{
+    colocarDisco(evt);
 }
 
 const criacaoTabela = () =>{ 
@@ -150,9 +170,12 @@ const reset = () => {
         element.remove()
     });
 }
+const music = () => {
+    const audio = document.querySelector('audio')
+    audio.play()
+}
 
 criacaoTabela()
+bemVindo();
+
 //FUNÇÕES
-
-
-
