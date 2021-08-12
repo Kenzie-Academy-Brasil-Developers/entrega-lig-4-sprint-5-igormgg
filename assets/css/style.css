@@ -181,7 +181,24 @@ main {
  
 }
 .vitoria {
-    margin-top: 4%;
+    margin: 0 auto;
+    width: 80vw;
+    height: 350px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: absolute;
+    color: var(--backgWhite);
+}
+.vitoriaEfeito{
+    width: 200px;
+    height: 600px;
+    background-image: url(../img/goku-acenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -60px;
+    bottom: -400px;
 }
 
 .hidden {
@@ -312,7 +329,9 @@ footer {
         width: 131px;
         height: 100px;
     }
-    
+    .vitoria{
+        height: 500px;
+    }
     #tabela {
         border: 30px solid var(--cor-borda-tabela);
     }
