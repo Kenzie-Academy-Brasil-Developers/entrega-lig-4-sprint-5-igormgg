@@ -166,7 +166,9 @@ main {
 img.button__iniciar{
     width: 224px;
     height: 152px;
-    opacity: 1;
+    animation: voar linear 2s ;
+    animation-iteration-count: infinite;
+
 }
 .disativado{
     display: none;
@@ -267,21 +269,11 @@ footer {
     }
 }
 @keyframes vibracao {
-    0% {
-        margin-left: 0;
-    }
-    25%{
-        margin-left: 5px;
-    }
-    50%{
-        margin-left: 0;
-    }
-    75%{
-        margin-left: -5px;
-    }
-    100%{
-        margin-left: 0;
-    }
+    0% {margin-left: 0;}
+    25%{margin-left: 5px;}
+    50%{margin-left: 0;}
+    75%{margin-left: -5px;}
+    100%{margin-left: 0;}
 }
 @keyframes fade {
     0%{opacity: 1;}
@@ -291,5 +283,21 @@ footer {
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
-
+/* @keyframes voar {
+    0%{
+       transform: translateX(0px);
+    }
+    25%{
+        transform: translateX(10px);
+    }
+    50%{
+        transform: translateX(0px);
+    }
+    75%{
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+} */
 /* ANIMATIONS */
