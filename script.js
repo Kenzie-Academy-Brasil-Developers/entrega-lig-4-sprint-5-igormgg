@@ -3,11 +3,7 @@ const tabela = document.querySelector('#tabela')
 const btnReset = document.querySelector('#reset')
 let player = 1;
 //VARIAVEIS GLOBAIS
-
 //FUNÇÕES
-
-// VITORIA
-
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
@@ -27,12 +23,14 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
         }
     }
 }
-
 const codigoJogador = (jogador) =>{
     if(jogador == 'jogador1'){
         return 1;
     }else if(jogador == 'jogador2'){
         return 2;
+    }
+    else {
+        return 0;
     }
 }
 const mapear = () =>{
@@ -55,69 +53,78 @@ const mapear = () =>{
     newArr = newArr.map( (arr)=>arr.reverse() );
     return newArr;
 }
-
-const percorrer = (mapa,arr) =>{
-    let arrTeste = [];
-    let count = 0;
-    let count2=0;
-    console.log(mapa)
-    for(let item=1;item<arr.length-2;item++){
-        // count = count2;
-        arrTeste[item]=[]
-        for(let i=0;i<mapa.length;i++){
-            arrTeste[item].push(mapa[i][count]);
-            count++;
-        }
-      count=item;
-        // console.log(arrTeste)
-        
-    }
-    return arrTeste
-    // console.log(arrTeste);
-    // return arrTeste
-    // console.log(arr)
-    // checaVencedorDiagonais(arrTeste);
-    // return arrTeste;
-    // return arrTeste
+const percorrerLinha = (mapa,linha) =>{
+    let arrMult = []
+    let aux = 0;
+            for(let q = 0; q < 4; q++){
+                arrMult[q] = [];
+                if(q === 0){
+                    for(let k = 0; k < 6; k++){
+                        
+                    arrMult[q].push(mapa[k][k+linha]) //mapa [k]linha [k]coluna
+                    }
+                }
+                if(q === 1){
+                    for(let k = 0; k < 6; k++){
+                        arrMult[q].push(mapa[k+1][k+linha])
+                    }
+                }
+                if (q === 2){
+                    for(let k = 0; k < 5; k++){
+                        arrMult[q].push(mapa[k+2][k+linha])
+                    }
+                }
+                if (q === 3){
+                    for(let k = 0; k < 4; k++){
+                        arrMult[q].push(mapa[k+3][k+linha])
+                    }
+                }    
+            }
+            let resultado = '';
+            for(let i=0;i<arrMult.length;i++){
+               resultado = checaVencedorDiagonais(arrMult[i])
+            }
+    return resultado;
 }
-
-const checaDiagonalDireita = (newCodigoJogadores) => {
-   let mapa = mapear()
-   console.log(mapa)
-//    let contador = mapa.length-3;
-//    let count = 0;
-   let arrDiagonalDireita = [];
-        for(let i=0;i<6;i++){
-            let arr = mapa[i];
-            let arrFinal = percorrer(mapa,arr)
-            console.log(arrFinal);
-        }
+const checaDiagonalEsquerda = () =>{
+    let resultado = undefined;
+    let mapa = mapear();
+        mapa.reverse();
+       for(let i=0;i<mapa.length-3;i++){
+        resultado = percorrerLinha(mapa,i); 
+       }
+    return resultado;
 }
-
+const checaDiagonalDireita = () => {
+    let resultado = '';
+    let mapa = mapear();
+       for(let i=0;i<mapa.length-3;i++){
+        resultado = percorrerLinha(mapa,i); 
+       }      
+    return resultado;
+}
 const buscarElement = (evt)=>{
     let pai = evt.currentTarget.parentElement;
     let elements = [...pai.childNodes];
     let jogadores=[];
     for( let coluna=0; coluna<elements.length; coluna++){
         let arrColuna = elements[coluna];
-        let filhos = arrColuna.childNodes;
+        let filhos = arrColuna.childNodes;    
         jogadores[coluna]=[]
         for(let linha = 0;linha<filhos.length;linha++){
             let status = filhos[linha].children[0]; //null ou elemento
             if (status !== undefined){
                 jogadores[coluna].unshift(status.classList[1]);
                 elementoColunaTest(jogadores[coluna]);
-               
             }
         }
-       
     }
-    // checaHorizontal(jogadores)
-   let  newCodigoJogadores =  codigoJogador(jogadores);
-        // console.log(newCodigoJogadores)
-        checaDiagonalDireita();
-        // checaDiagonalEsquerda(newCodigoJogadores);
-
+    let resultado = undefined;
+        resultado = checaDiagonalDireita(jogadores);
+        if(resultado == undefined){
+            checaDiagonalEsquerda(jogadores);
+        }
+    
 }
 const elementoColunaTest =(jogador)=>{
 let contadorJogador1=0;
@@ -136,9 +143,6 @@ let contadorJogador2=0;
         console.log("jogador2 venceu")
     }
 }
-
-// VITORIA
-
 const vitoriaJogador1 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
@@ -162,7 +166,6 @@ const criarDisco = (destino,player) =>{
         destino.appendChild(disco);
         return true;
 }
-
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
@@ -227,11 +230,7 @@ const reset = () => {
         element.remove()
     });
 }
-
 bemVindo();
 criacaoTabela();
-
-
-
 //FUNÇÕES
 
