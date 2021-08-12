@@ -5,6 +5,106 @@ let player = 1;
 
 //VARIAVEIS GLOBAIS
 
+//FUNÇÕES
+const checaVencedorDiagonais = (arrDiagonal) =>{
+    let vencedor = 0;
+    let countOne = 0;
+    let countTwo = 0;
+    for(let i=0; i<arrDiagonal.length;i++){
+        if(arrDiagonal[i] == 1){
+            countTwo= 0;
+            countOne++;
+        } else if(arrDiagonal[i] == 2){
+            countOne = 0;
+            countTwo++;
+        }
+        if(countOne == 4){
+            return vitoriaJogador1();
+        }else if(countTwo == 4){
+            return vitoriaJogador2();
+        }
+    }
+}
+const codigoJogador = (jogador) =>{
+    if(jogador == 'jogador1'){
+        return 1;
+    }else if(jogador == 'jogador2'){
+        return 2;
+    }
+    else {
+        return 0;
+    }
+}
+const mapear = () =>{
+    let busca = document.querySelector('#tabela')
+    let arrTabela = busca.childNodes;
+    let newArr = [];
+    for(let i=0;i<arrTabela.length;i++){
+        let arr = arrTabela[i].childNodes;
+        newArr [i] =[]
+        for(let j=0;j<arr.length;j++){
+            let filho =arr[j].firstChild;
+            if(filho !== null){
+                newArr[i][j] = codigoJogador(filho.classList[1])
+            }
+            if(filho == null){
+                newArr[i][j]=0;
+            }
+        }
+    }
+    newArr = newArr.map( (arr)=>arr.reverse() );
+    return newArr;
+}
+const percorrerLinha = (mapa,linha) =>{
+    let arrMult = []
+    let aux = 0;
+            for(let q = 0; q < 4; q++){
+                arrMult[q] = [];
+                if(q === 0){
+                    for(let k = 0; k < 6; k++){
+                        
+                    arrMult[q].push(mapa[k][k+linha]) //mapa [k]linha [k]coluna
+                    }
+                }
+                if(q === 1){
+                    for(let k = 0; k < 6; k++){
+                        arrMult[q].push(mapa[k+1][k+linha])
+                    }
+                }
+                if (q === 2){
+                    for(let k = 0; k < 5; k++){
+                        arrMult[q].push(mapa[k+2][k+linha])
+                    }
+                }
+                if (q === 3){
+                    for(let k = 0; k < 4; k++){
+                        arrMult[q].push(mapa[k+3][k+linha])
+                    }
+                }    
+            }
+            let resultado = '';
+            for(let i=0;i<arrMult.length;i++){
+               resultado = checaVencedorDiagonais(arrMult[i])
+            }
+    return resultado;
+}
+const checaDiagonalEsquerda = () =>{
+    let resultado = undefined;
+    let mapa = mapear();
+        mapa.reverse();
+       for(let i=0;i<mapa.length-3;i++){
+        resultado = percorrerLinha(mapa,i); 
+       }
+    return resultado;
+}
+const checaDiagonalDireita = () => {
+    let resultado = '';
+    let mapa = mapear();
+       for(let i=0;i<mapa.length-3;i++){
+        resultado = percorrerLinha(mapa,i); 
+       }      
+    return resultado;
+}
 
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
@@ -40,6 +140,7 @@ const buscarElementlinha = (evt) =>{
     }
 }
 }
+
 //busca os elementos por coluna
 
 const buscarElementColuna = (evt)=>{
@@ -87,6 +188,7 @@ let contador2=0;
 }
 }
 //fim da busca dos elementos por coluna
+
 const vitoriaJogador1 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
@@ -101,8 +203,7 @@ const criarDisco = (destino,player) =>{
         disco.classList.add('disco') 
         player%2 !== 0? disco.classList.add('jogador1') : disco.classList.add('jogador2');
         destino.appendChild(disco);
-
-      return true;
+        return true;
 }
 const colocarDisco = (evt) =>{
     let status = false;
