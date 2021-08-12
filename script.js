@@ -147,6 +147,7 @@ const testaEmpate = (evt) =>{
         }
         if(contador===42){
             empateJogadores()
+            break;
         }
     }
 }
@@ -185,7 +186,7 @@ const buscarElementlinha = (evt) =>{
     }   contadorJogador2=0;
         contadorJogador1=0;
 }
-}
+
 
 //busca os elementos por coluna
 const buscarElementColuna = (evt)=>{
@@ -300,7 +301,7 @@ const jogada = (evt) =>{
     colocarDisco(evt);
 }
 const criacaoTabela = () =>{ 
-  
+  play1.style.display='block';
     for(let coluna = 0; coluna < 7; coluna++){
             let novaColuna = document.createElement('div')
             novaColuna.classList.add(`colunas`)
