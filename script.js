@@ -2,6 +2,7 @@
 const tabela = document.querySelector('#tabela')
 const btnReset = document.querySelector('#reset')
 let player = 1;
+
 //VARIAVEIS GLOBAIS
 
 //FUNÇÕES
@@ -104,66 +105,102 @@ const checaDiagonalDireita = () => {
        }      
     return resultado;
 }
-const buscarElement = (evt)=>{
+
+//buscar elemento linha
+const buscarElementlinha = (evt) =>{
+    let contadorJogador1=0;
+    let contadorJogador2=0;
+    for(let linha=0;linha<6;linha++){
+
+        for(let coluna=0;coluna<7;coluna++){
+
+         let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
+         
+         if(teste.firstChild===null){
+          contadorJogador2=0;
+          contadorJogador1=0;
+         }else if(teste.firstChild!==null){  
+         let  valores= teste.firstChild.classList[1];
+            if(valores=='jogador1'){
+            contadorJogador1++;
+            console.log("jogador 1: "+contadorJogador1)
+            contadorJogador2=0;                
+            }else if(valores=='jogador2'){
+                contadorJogador2++;
+                console.log("jogador2 :"+contadorJogador2)
+                contadorJogador1-=contadorJogador1;
+            }
+            if(contadorJogador1===4){
+                console.log("jogador1 ganhou")
+            }else if(contadorJogador2===4){
+                console.log("jogador2 ganhou")
+            }
+        
+        }
+    }
+}
+}
+
+//busca os elementos por coluna
+
+const buscarElementColuna = (evt)=>{
+    
     let pai = evt.currentTarget.parentElement;
     let elements = [...pai.childNodes];
     let jogadores=[];
     for( let coluna=0; coluna<elements.length; coluna++){
         let arrColuna = elements[coluna];
-        let filhos = arrColuna.childNodes;    
+        let filhos = arrColuna.childNodes;
         jogadores[coluna]=[]
         for(let linha = 0;linha<filhos.length;linha++){
             let status = filhos[linha].children[0]; //null ou elemento
-            if (status !== undefined){
-                jogadores[coluna].unshift(status.classList[1]);
-                elementoColunaTest(jogadores[coluna]);
-            }
+                if (status !== undefined){    
+                    jogadores[coluna].unshift(status.classList[1])
+                               
+                    elementoColunatest(jogadores[coluna])
+                }
+               
+                } 
         }
     }
-    //primeiro ele testa a checaDiagonalDireita se nao ouver ganhador testa a checaDiagonalEsquerda
-    let resultado = undefined;
-        resultado = checaDiagonalDireita(jogadores);
-        if(resultado == undefined){
-            checaDiagonalEsquerda(jogadores);
-        }
+
+const elementoColunatest =(jogador)=>{
+
+let contador1=0;
+let contador2=0;
+
+    for(let contador=0;contador<jogador.length;contador++) 
     
-}
-const elementoColunaTest =(jogador)=>{
-let contadorJogador1=0;
-let contadorJogador2=0;
-    for(let contador=0;contador<jogador.length;contador++)
-        if(jogador[contador]=='jogador1'){
-            contadorJogador1++;
-            contadorJogador2=0;
+    if(jogador[contador]=='jogador1'){
+        contador1++;
+        
+        contador2=0;
     }else if(jogador[contador]=="jogador2"){
-        contadorJogador2++
-        contadorJogador1=0;
+        contador2++
+        contador1=0;                       
     }
-    if(contadorJogador1===4){
-        console.log("jogador1 venceu!")
-    }else if(contadorJogador2===4){
+    if(contador1===4){
+            console.log("jogador1 venceu!")
+    }else
+    if(contador2===4){
         console.log("jogador2 venceu")
-    }
+
 }
+}
+//fim da busca dos elementos por coluna
+
 const vitoriaJogador1 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
 }
+
 const vitoriaJogador2 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
-const colunaCheia = () =>{
-    let busca = document.getElementById('tabela');
-        navigator.vibrate(200);//teste em mobiles
-        busca.classList.add('vibracao');
-        setTimeout(function(){
-            busca.classList.remove('vibracao');
-        },200);
-}
 const criarDisco = (destino,player) =>{
     let disco = document.createElement('div');
-        disco.classList.add('disco');
+        disco.classList.add('disco') 
         player%2 !== 0? disco.classList.add('jogador1') : disco.classList.add('jogador2');
         destino.appendChild(disco);
         return true;
@@ -171,25 +208,22 @@ const criarDisco = (destino,player) =>{
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
-    let primeiraCelula = evt.currentTarget.firstElementChild;
     let arr = [...evt.currentTarget.childNodes];
   
         arr = arr.reverse();
-        if(primeiraCelula.firstElementChild !== null){
-            colunaCheia();
-            return false;
-        }
-        for(let i=0;i<arr.length;i++){
-            if(arr[i].lastElementChild == null){
-                destino = arr[i];
-                i=arr.length;
-            }
+       for(let i=0;i<arr.length;i++){
+        if(arr[i].lastElementChild == null){
+            destino = arr[i];
+            i=arr.length;
+        }        
        }
-        status = criarDisco(destino,player);
-        if(status == true){
-            player++;
-        }
-        buscarElement(evt);
+  
+    status = criarDisco(destino,player);
+    if(status == true){
+        player++;
+    }
+    buscarElementlinha(evt);
+    buscarElementColuna(evt);
 }
 const bemVindo = () =>{
     let buttonJogar = document.querySelector('.btn__jogar');
@@ -197,18 +231,21 @@ const bemVindo = () =>{
     let buscaBody = document.getElementsByTagName('body')[0];
         buscaBody.classList.add('esconder');
         buttonJogar.addEventListener('click',function(){
+            music()
             buscaBody.classList.add('fade');
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
-                buscaBody.classList.add('fadeIn');    
+                buscaBody.classList.add('fadeIn'); 
+
             },500);
         } );
 }
 const jogada = (evt) =>{
     colocarDisco(evt);
 }
-const criacaoTabela = () =>{
+
+const criacaoTabela = () =>{ 
     for(let coluna = 0; coluna < 7; coluna++){
             let novaColuna = document.createElement('div')
             novaColuna.classList.add(`colunas`)
@@ -219,8 +256,10 @@ const criacaoTabela = () =>{
         for(let celula = 0; celula < 6; celula++){
             let novaCelula = document.createElement('div')
             novaCelula.classList.add('celulas')
+            novaCelula.dataset.coluna = `${coluna}`
             novaCelula.dataset.celula = `${celula}`
             novaColuna.appendChild(novaCelula)
+           
         }
     }
     btnReset.addEventListener('click',reset)
@@ -232,8 +271,12 @@ const reset = () => {
         element.remove()
     });
 }
-//FUNÇÕES
+const music = () => {
+    const audio = document.querySelector('audio')
+    audio.play()
+}
+
+criacaoTabela()
 bemVindo();
-criacaoTabela();
 
-
+//FUNÇÕES
