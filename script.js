@@ -18,9 +18,11 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
         }
         if(countOne == 4){
             console.log('vitoriaJogador1')
+            return true;
             // return vitoriaJogador1();
         }else if(countTwo == 4){
-            console.log('vitoriaJogador1')
+            console.log('vitoriaJogador2')
+            return true
             // return vitoriaJogador2();
         }
     }
@@ -30,9 +32,6 @@ const codigoJogador = (jogador) =>{
         return 1;
     }else if(jogador == 'jogador2'){
         return 2;
-    }
-    else {
-        return 0;
     }
 }
 const mapear = () =>{
@@ -93,17 +92,21 @@ const checaDiagonalEsquerda = () =>{
     let mapa = mapear();
         mapa.reverse();
        for(let i=0;i<mapa.length-3;i++){
-        resultado = percorrerLinha(mapa,i); 
+        resultado = percorrerLinha(mapa,i);
+        if(resultado==true){
+            i=mapa.length-3;
+        }
        }
-    return resultado;
 }
 const checaDiagonalDireita = () => {
-    let resultado = '';
+    let resultado = undefined;
     let mapa = mapear();
        for(let i=0;i<mapa.length-3;i++){
         resultado = percorrerLinha(mapa,i); 
+        if(resultado==true){
+            i=mapa.length-3;
+        }
        }      
-    return resultado;
 }
 //condição de empate
 const testaEmpate = (evt) =>{
@@ -150,10 +153,8 @@ const buscarElementlinha = (evt) =>{
             }
             if(contadorJogador1===4){
                 console.log("jogador1 ganhou")
-                return vitoriaJogador1();
             }else if(contadorJogador2===4){
                 console.log("jogador2 ganhou")
-                return vitoriaJogador2();
             }
         
             }
