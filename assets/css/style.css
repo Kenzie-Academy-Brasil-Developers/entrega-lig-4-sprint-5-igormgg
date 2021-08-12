@@ -1,4 +1,10 @@
 :root {
+    --bg-img-mobile: url(../img/shenlong-mobile-bg.jpg);
+    --bg-img-desktop: url(../img/goku-gohan-desktop-background.jpg);
+    --img-yellow-ball: url(../img/yellow-ball.png);
+    --img-blue-ball: url(../img/blue-ball.png);
+    --img-botao-radar: url(../img/botao-radar.png);
+
     --color1: #140f07;
     --cor-header: #1f2c4f;
     --cor-footer: #5560aa;
@@ -10,7 +16,15 @@
     --colorFontWhite : #ffffff;
     --backgWhite : #ffffff;
     --backBlack : #000000;
+    --cor-tabela: #1f5c10e7;
+    --cor-borda-tabela: #cecece;
 
+    /* Segue abaixo a paleta de cores escolhida pra combinar com o tema */
+    --orange: #e76a24;
+    --yellow: #fbbc42;
+    --green: #1f5c10;
+    --platinum: #e7e5e8;
+    --black: #000000;
 }
 
 html {
@@ -48,6 +62,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: var(--bg-img-mobile);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* HEADER */
@@ -66,7 +83,11 @@ header h1 {
     font-size: 2rem;
     color: var(--cor-main);
 }
+
 /* HEADER */
+
+
+
 /* MAIN */
 
 main {
@@ -75,16 +96,34 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 4%;
-    margin-bottom: 4%;
+    justify-content: center;
+}
+
+#botao-radar {
+    width: 65.5px;
+    height: 50px;
+    background-image: var(--img-botao-radar);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#containerTabela {
+    width: 100%;
+    position: relative;
+    padding-top: 85.7142857%;
 }
 
 #tabela {
     display: flex;
-    /* margin: 0 auto; */
-    width: 224px;
-    height: 192px;
-    
+    width: 100%;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--cor-tabela);
+    border: 20px solid var(--cor-borda-tabela);
+    border-radius: 20px;
 }
 
 .colunas {
@@ -97,17 +136,50 @@ main {
 .celulas {
     width: 100%;
     height: calc(100%/6);
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: none;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+[data-coluna='6'] div {
+    border-right: none;
+}
+
+[data-coluna="6"] [data-celula="5"] {
+    border-bottom: none;
+}
+
+[data-coluna="5"] [data-celula="5"] {
+    border-bottom: none;
+}
+
+[data-coluna="4"] [data-celula="5"] {
+    border-bottom: none;
+}
+
+[data-coluna="3"] [data-celula="5"] {
+    border-bottom: none;
+}
+
+[data-coluna="2"] [data-celula="5"] {
+    border-bottom: none;
+}
+
+[data-coluna="1"] [data-celula="5"] {
+    border-bottom: none;
+}
+
+[data-coluna="0"] [data-celula="5"] {
+    border-bottom: none;
 }
 
 #reset{
     margin-top: 20px;
  
 }
-
 .vitoria {
     margin-top: 4%;
 }
@@ -122,10 +194,12 @@ main {
     animation: moveDown 1s;
 }
 .jogador1{
-    background-color: var(--colorDiscoPlayerUm);
+    background-image: var(--img-yellow-ball);
+    background-size: contain;
 }
 .jogador2{
-    background-color: var(--colorDiscoPlayerDois);
+    background-image: var(--img-blue-ball);
+    background-size: contain;
 }
 .vibracao{
     animation: vibracao 0.1s;
@@ -227,28 +301,42 @@ footer {
 /* MEDIA */
 
 @media screen and (min-width:321px) and (max-width:720px){
-    #tabela {
-        width: 288px;
-        height: 246.86px;
+    #botao-radar {
+        width: 85.15px;
+        height: 65px;
     }
 }
 
 @media screen and (min-width:721px) and (max-width:1024px){
-    #tabela {
-        width: 500px;
-        height: 428.57px;
+    #botao-radar {
+        width: 131px;
+        height: 100px;
     }
     
+    #tabela {
+        border: 30px solid var(--cor-borda-tabela);
+    }
 }
 
 @media screen and (min-width:1025px){
+    body {
+        background-image: var(--bg-img-desktop);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
     main {
         width: 50%;
+        max-width: 750px;
+    }
+
+    #botao-radar {
+        width: 157px;
+        height: 120px;
     }
 
     #tabela {
-        width: 700px;
-        height: 600px;
+        border: 30px solid var(--cor-borda-tabela);
     }
     
     footer {
