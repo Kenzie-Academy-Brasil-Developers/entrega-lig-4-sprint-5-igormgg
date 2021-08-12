@@ -197,12 +197,14 @@ const bemVindo = () =>{
     let buscaBody = document.getElementsByTagName('body')[0];
         buscaBody.classList.add('esconder');
         buttonJogar.addEventListener('click',function(){
+            buttonJogar.firstChild.classList.remove('voar')
+            buttonJogar.firstChild.classList.add('nuvemPartiu')
             buscaBody.classList.add('fade');
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
                 buscaBody.classList.add('fadeIn');    
-            },500);
+            },1000);
         } );
 }
 const jogada = (evt) =>{
@@ -232,8 +234,15 @@ const reset = () => {
         element.remove()
     });
 }
+
+const alternarAnimacaoNuvem = () =>{
+    let query = document.querySelector('.button__iniciar ')
+        query.classList.remove('nuvemChegada')
+        query.classList.add('voar')
+} 
 //FUNÇÕES
 bemVindo();
 criacaoTabela();
+setTimeout(()=>{alternarAnimacaoNuvem()},2000 )
 
 

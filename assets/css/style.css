@@ -132,7 +132,7 @@ main {
     animation-iteration-count: 3;
 }
 .fade{
-    animation: fade 0.5s ease-in-out;
+    animation: fade 1s ease-in-out;
 }
 .fadeIn{
     animation: fadeIn 0.5s ease-in-out;
@@ -166,9 +166,17 @@ main {
 img.button__iniciar{
     width: 224px;
     height: 152px;
-    animation: voar linear 2s ;
+    
+}
+.nuvemChegada{
+    animation: NuvemChegada  2s ;
+}
+.nuvemPartiu{
+    animation: NuvemPartiu  2s ;
+}
+.voar{
+    animation: voar linear  2s ;
     animation-iteration-count: infinite;
-
 }
 .disativado{
     display: none;
@@ -283,21 +291,41 @@ footer {
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
-/* @keyframes voar {
+@keyframes NuvemChegada {
+    from{
+        transform: translate3d(-300px, -140px, -400px);
+    }
+    to{
+        transform: translate3d(0px,0px, 0px);
+    }
+    
+}
+@keyframes NuvemPartiu {
+    from{
+        transform: translate3d(0px,0px, 0px);
+    }
+    to{
+        transform: translate3d(400px, -200px, -400px);
+        
+    }
+    
+}
+@keyframes voar {
     0%{
-       transform: translateX(0px);
+       transform: translateY(0px);
     }
     25%{
-        transform: translateX(10px);
+        transform: translateY(5px);
     }
-    50%{
-        transform: translateX(0px);
-    }
-    75%{
-        transform: translateX(-10px);
+    
+    50%{ 
+        transform: translateY(0px);
+     } 
+     75%{
+        transform: translateY(-5px);
     }
     100%{
-        transform: translateX(0px);
+        transform: translateY(0px);
     }
-} */
+}
 /* ANIMATIONS */
