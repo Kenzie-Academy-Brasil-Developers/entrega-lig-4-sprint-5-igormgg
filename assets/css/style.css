@@ -5,6 +5,7 @@
     --img-yellow-ball: url(../img/yellow-ball.png);
     --img-blue-ball: url(../img/blue-ball.png);
     --img-botao-radar: url(../img/botao-radar.png);
+    --font-dbz: 'dbz';
    
     --color1: #140f07;
     --cor-header: #1f5c10e7;
@@ -26,8 +27,13 @@
     --green: #1f5c10;
     --platinum: #e7e5e8;
     --black: #000000;
-}
+    --red: #ff0000;
 
+}
+@font-face {
+    font-family: 'dbz';
+    src: url("../font/Saiyan-Sans.ttf");
+}
 html {
     width: 100vw;
     height: 100vh;
@@ -82,8 +88,15 @@ header {
 
 header h1 {
     line-height: 6vh;
-    font-size: 2rem;
-    color: var(--cor-main);
+    font-size: 2.5rem;
+    color: var(--yellow);
+    font-family: var(--font-dbz);
+}
+header .orange{
+    color:var(--orange)
+}
+header .red{
+    color:var(--red)
 }
 
 /* HEADER */
