@@ -133,6 +133,10 @@ main {
     display: flex;
     flex-direction: column;
 }
+.colunas:hover {
+    background-color: #88ff38;
+
+}
 
 .celulas {
     width: 100%;
