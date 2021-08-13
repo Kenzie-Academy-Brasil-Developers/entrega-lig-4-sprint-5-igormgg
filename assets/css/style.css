@@ -38,7 +38,6 @@ html {
     width: 100vw;
     height: 100vh;
 }
-
 button{
     appearance: none;
         -webkit-writing-mode: none;
@@ -260,13 +259,11 @@ main {
     position:absolute;
     right: -46px;
     bottom: -375px;
-
 }
 .title-fala{
     font-size: 1.3rem;
 color: orange;
 }
-
 .container-vitoria{
     position: absolute;
     top: 0px;
