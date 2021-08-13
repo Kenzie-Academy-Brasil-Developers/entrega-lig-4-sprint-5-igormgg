@@ -5,80 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Lig-4</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='shortcut icon' type='image/x-icon' href='assets/favicon/favicon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='assets/favicon/animated.ico' />
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Lig Ball Z</title>
 </head>
 <body>
     <header>
-        <h1>Jogo Lig-4</h1>
+        <h1>Lig<span class="orange">O</span><span class="red">Ball-Z</span></h1>
     </header>
-
     <main>
-        <section>
-            <div class="colunas" id="coluna1">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
-            <div class="colunas" id="coluna2">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
-            <div class="colunas" id="coluna3">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
-            <div class="colunas" id="coluna4">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
-            <div class="colunas" id="coluna5">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
-            <div class="colunas" id="coluna6">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
-            <div class="colunas" id="coluna7">
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-                <div class="linha"></div>
-            </div>
+        <button id="reset">Resetar radar</button>
+        <section id='containerTabela'>
+            <div id='tabela'></div>
         </section>
+        <div class="container-vitoria hidden ">
+            <div class="hidden vitoria" id="vitoriaJogador1">
+                <p class="texto-vitoria"><span class="title-vitoria">Jogador 1</span><span class="title-fala">Goku: </span>Oi, eu sou o Goku! Você me ajudou a encontrar as esferas do dragão! Juntos vamos salvar a terra!</p>
+                <button class="jogar-novamente" id="jogar-nov1">Jogar Novamente</button>
+                <div class="vitoriaGoku"></div>
+            </div>
+            <div class="hidden vitoria" id="vitoriaJogador2">
+                <p class="texto-vitoria"><span class="title-vitoria">Jogador 2</span><span class="title-fala">Vegeta: </span>Eu sou o Principe dos Saiyajins, o mais forte do universo! Juntei as esferas do dragão! Vou salvar a terra e todos vão saber que o Kakarotto é um verme inútil! </p>
+                <button class="jogar-novamente" id="jogar-nov2">Jogar Novamente</button>
+                <div class="vitoriaVedita"></div>
+            </div>
+            <div class="hidden vitoria" id="empate">
+                
+                <p class="texto-vitoria"><span class="title-vitoria">Empate</span><span class="title-fala">Goku: </span>  Não conseguimos as esferas do dragão, agora teremos que lutar contra o inimigo sem a ajuda do Shenlong! Vamos fazer a fusão e salvar a terra, não é mesmo Vegeta?<br> <span class="title-fala">Vegeta: </span> Cala a boca seu verme imundo! Vamos fazer logo essa fusão idiota e acabar com isso! </p>
+                <button class="jogar-novamente" id="jogar-nov3">Jogar Novamente</button>
+                <div class="empate"></div>
+            </div>
+        </div>
+        <div id="conteudo__regras">
+            <div class="regras">
+                <h1 class="regras__title ">Bem vindo ao Lig Ball Z</h1>
+                <div class="regras__conteudo">
+                    <ul class="regras__lista">
+                        <li class="regras__item">Goku está atrás das esferas do Dragão para salvar a terra, e Vegeta, mais uma vez, quer provar que é mais forte que Goku. </li>
+                        <li class="regras__item"><h2 class="regras__subtitle"> Regras do Jogo </h2></li>
+                        <li class="regras__item">No Lig-Ball Z (Lig-4), um jogador assume a esfera do dragão amarela e o outro assume a azul. </li>
+                        <li  class="regras__item">Os jogadores se alternam inserindo suas esferas do dragão em uma das 7 colunas do radar.</li>
+                        <li  class="regras__item">O primeiro jogador que conseguir quatro de suas esferas do dragão em sequência vence (seja na horizontal, na vertical ou na diagonal).</li>
+                    </ul>
+                </div>
+                <p class="regras__p ">Boa Sorte!</p>
+                <button class="btn btn__jogar"><img class="button__iniciar nuvemChegada" src="./assets/img/button-iniciar-pronto.png" alt=""></button>
+            </div>
+        </div>
+        <div id="joga1"><h1>Turno: P. um</h1></div>
+        <div id="joga2"><h1>Turno: P. dois</h1></div>
+        <audio id="gameSound"><source src="assets/sounds/dbz.mp3" type="audio/mpeg"> </audio>
+        <audio id="vitoriaGenio"><source src="assets/sounds/vegeta-genio.mp3" type="audio/mpeg"> </audio>
+        <audio id="vitoria"><source src="assets/sounds/vitoria-sound.mp3" type="audio/mpeg"> </audio>
+        <audio id="empate"><source src="assets/sounds/sad-dbz.mp3" type="audio/mpeg"> </audio>
+        <audio id="sougoku"><source src="assets/sounds/souGoku.mp3" type="audio/mpeg"> </audio>
+        
+
     </main>
-
     <footer>
-
+            <h1>
+                <a target="_blank" href="https://www.linkedin.com/in/angelo-vieira-3a568016a"><span class="amarelo">Angelo<i class="fa fa-linkedin-square" aria-hidden="true"></i> O </span></a>
+                <a target="_blank" href="https://www.linkedin.com/in/brferreiraoliveira/"><span class="laranja">Bruno<i class="fa fa-linkedin-square" aria-hidden="true"></i> o </span></a>
+                <a target="_blank" href="https://www.linkedin.com/in/igormgg/"><span class="vermelho">Igor<i class="fa fa-linkedin-square" aria-hidden="true"></i> O </span></a>
+                <a target="_blank" href="https://www.linkedin.com/in/smilly-delmondes-307927207/"><span class="vermelho">Smilly<i class="fa fa-linkedin-square" aria-hidden="true"></i></span></a>
+            </h1>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
