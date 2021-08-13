@@ -384,6 +384,7 @@ const criacaoTabela = () =>{
 const reset = () => {
     audio[0].play()
     audio[2].pause()
+    audio[3].pause()
     const resetAll = document.querySelectorAll('.disco');
     player = 1;
     resetAll.forEach(element => {
