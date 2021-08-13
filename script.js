@@ -7,8 +7,6 @@ const play2 = document.querySelector('#joga2');
 let player = 1;
 
 //VARIAVEIS GLOBAIS
-
-
 //FUNÇÕES
 const turnoJogador = () =>{
     if( play2.style.display==='block'){
@@ -21,7 +19,6 @@ const turnoJogador = () =>{
     play2.style.display='block'
     }
 }
-
 
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let countOne = 0;
@@ -260,7 +257,9 @@ const vitoriaJogador1 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
-    const divVitoria = document.querySelector('#vitoriaJogador2')
+    let divPai = document.querySelector('.container-vitoria');
+    divPai.classList.remove('hidden');
+    const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
 }
 const vitoriaJogador2 = () => {
@@ -314,8 +313,6 @@ const colocarDisco = (evt) =>{
             i=arr.length;
         }        
        }
-      
-      
            status = criarDisco(destino,player);
       
     if(status == true){
