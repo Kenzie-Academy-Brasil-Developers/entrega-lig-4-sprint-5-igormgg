@@ -7,8 +7,8 @@
     --img-botao-radar: url(../img/botao-radar.png);
    
     --color1: #140f07;
-    --cor-header: #1f2c4f;
-    --cor-footer: #5560aa;
+    --cor-header: #1f5c10e7;
+    --cor-footer: #1f5c10e7;
     --cor-main: #9e9cf9;
     --color2: #ffe6f4;
 
@@ -66,6 +66,7 @@ body {
     background-image: var(--bg-img-mobile);
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: url('../cursor/InicioCursor.cur'), auto;
 }
 
 /* HEADER */
@@ -142,7 +143,8 @@ main {
 }
 .colunas:hover {
     background-color: #88ff3869;
-    cursor: pointer;
+    cursor: url('../cursor/cursor.cur'), auto;
+
 }
 
 .celulas {
@@ -348,6 +350,9 @@ img.button__iniciar{
 .btn{
     padding: 0px 10px 0px 10px;
 }
+.btn__jogar{
+    cursor: url('../cursor/cursorZinicio.cur'), auto;
+}
 
 /* MAIN */
 
@@ -533,6 +538,10 @@ font-size: 15px;}
 }
 
 @media screen and (min-width:1025px){
+    :root{
+        --cor-header: #63525f87;
+        --cor-footer: #63525f87;
+    }
     body {
         background-image: var(--bg-img-desktop);
         background-repeat: no-repeat;
@@ -544,6 +553,7 @@ font-size: 15px;}
     main {
         width: 50%;
     }
+    
 
     #botao-radar {
         width: 157px;
