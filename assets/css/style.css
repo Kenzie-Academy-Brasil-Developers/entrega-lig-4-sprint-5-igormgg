@@ -5,7 +5,7 @@
     --img-yellow-ball: url(../img/yellow-ball.png);
     --img-blue-ball: url(../img/blue-ball.png);
     --img-botao-radar: url(../img/botao-radar.png);
-
+   
     --color1: #140f07;
     --cor-header: #1f2c4f;
     --cor-footer: #5560aa;
@@ -181,42 +181,8 @@ main {
     margin-top: 20px;
     display: none;
 }
-.container-vitoria{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-}
 .vitoria {
-    margin: 0 auto;
-    width: 80vw;
-    height: 60%;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    margin-top: 150px;
-    color: var(--backgWhite);
-}
-.vitoriaGoku{
-    width: 260px;
-    height: 600px;
-    background-image: url(../img/goku-acenando.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    position:absolute;
-    right: -10px;
-    bottom: -360px;
-}
-.vitoriaVedita{
-    width: 250px;
-    height: 600px;
-    background-image: url(../img/vegetaacenando.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    position:absolute;
-    right: -45px;
-    bottom: -330px;
+    margin-top: 4%;
 }
 
 .hidden {
@@ -245,7 +211,7 @@ main {
     animation-iteration-count: 3;
 }
 .fade{
-    animation: fade 1.4s ease-in-out;
+    animation: fade 1s ease-in-out;
 }
 .fadeIn{
     animation: fadeIn 0.5s ease-in-out;
@@ -265,7 +231,7 @@ main {
     background-repeat: no-repeat; */
 }
 .regras{
-    width: 80vw;
+    width: 281px;
     max-width: 500px;
     height: 552px;
     margin: 0 auto;
@@ -280,13 +246,12 @@ main {
     
 }
 img.button__iniciar{
-    width: 75vw;
-    max-width: 220px;
-    height: auto;
+    width: 224px;
+    height: 152px;
     
 }
 .nuvemChegada{
-    animation: NuvemChegada  1.5s ;
+    animation: NuvemChegada  2s ;
 }
 .nuvemPartiu{
     animation: NuvemPartiu  2s ;
@@ -341,38 +306,6 @@ footer {
 
 /* MEDIA */
 
-/* MEDIAS MIN */
-@media only screen and (min-width: 500px) {
-    .vitoria {
-        height: 70%;
-    }
-}
-@media only screen and (min-width: 800px) {
-    .vitoria{
-        height: 80%;
-        width: 80vw;
-        margin-top: 100px;
-    }
-   
-    .vitoriaVedita{
-        width: 310px;
-        bottom: -regras300px;
-    }
-}
-@media only screen and (min-width: 1000px) {
-    .vitoria{
-        width: 70% ;
-    }
-}
-@media only screen and (min-width: 1200px) {
-    .regras{
-        margin-right: 300px;
-    }
-}
-/* MEDIAS MIN */
-
-
-
 @media screen and (min-width:321px) and (max-width:539px){
     #botao-radar {
         width: 85.15px;
@@ -382,7 +315,31 @@ footer {
     #containerTabela {
         max-width: 288px;
         max-height: 247.68px;
+    }#joga1{
+        display:none;
+        position: absolute;
+        
+        top: 20%;
+        left: 4% ;
+        z-index: 1;
+        height: 50px;
+        width: 30px;
+    
     }
+    #joga2{
+        display:none;
+        position: absolute;
+        top: 20%;
+        right: 4%;
+        z-index: 1;
+        height: 50px;
+        width: 30px;
+    }
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 24%;
+    font-size: 15px;}
 }
 
 @media screen and (min-width:540px) and (max-width:720px){
@@ -395,9 +352,63 @@ footer {
         max-width: 432px;
         max-height: 371.5px;
     }
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 20%;
+    left: 4% ;
+    z-index: 1;
+    height: 50px;
+    width: 30px;
+
 }
+#joga2{
+    display:none;
+    position: absolute;
+    top: 20%;
+    right: 4%;
+    z-index: 1;
+    height: 50px;
+    width: 30px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 23%;
+font-size: 15px;}
+}
+    
+
 
 @media screen and (min-width:721px) and (max-width:999px){
+
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 20%;
+    left: 6% ;
+    z-index: 1;
+    height: 100px;
+    width: 50px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 20%;
+    right: 6%;
+    z-index: 1;
+    height: 100px;
+    width: 50px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 21%;
+font-size: 15px;}
+
     #botao-radar {
         width: 131px;
         height: 100px;
@@ -418,7 +429,6 @@ footer {
         width: 131px;
         height: 100px;
     }
-    
 
     #containerTabela {
         max-width: 700px;
@@ -433,6 +443,31 @@ footer {
         background-image: var(--bg-img-fullsize-home);
         background-position: center;
     }
+
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 30%;
+    left: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 30%;
+    right: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 20%;}
 }
 
 @media screen and (min-width:1025px){
@@ -473,6 +508,30 @@ footer {
         background-position: center;
         background-size: contain;
     }
+    #joga1{
+        display:none;
+        position: absolute;
+        
+        top: 30%;
+        left: 7% ;
+        z-index: 1;
+        height: 150px;
+        width: 100px;
+    
+    }
+    #joga2{
+        display:none;
+        position: absolute;
+        top: 30%;
+        right: 7% ;
+        z-index: 1;
+        height: 150px;
+        width: 100px;
+    }
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 23%;}
 }
 
 /* MEDIA */
@@ -512,19 +571,18 @@ footer {
 }
 @keyframes NuvemChegada {
     from{
-        transform: translate3d(-1000px, -140px, -400px);
+        transform: translate3d(-300px, -140px, -400px);
     }
     to{
         transform: translate3d(0px,0px, 0px);
     }
     
 }
-
 @keyframes NuvemPartiu {
-    0%{
-        transform: translate3d(0px, -10px, 0px);
+    from{
+        transform: translate3d(0px,0px, 0px);
     }
-    100%{
+    to{
         transform: translate3d(400px, -200px, -400px);
         
     }
@@ -548,25 +606,5 @@ footer {
         transform: translateY(0px);
     }
 }
-#joga1{
-    display: none;
-    position: absolute;
-    top: 30%;
-    left: 10% ;
-    z-index: 1;
-    background-color: blue;
-    height: 30px;
-    width: 10%;
-    
-}
-#joga2{
-    display: none;
-    position: absolute;
-    top: 30%;
-    right: 10% ;
-    z-index: -1;
-    background-color: #1f5c10;
-    height: 30px;
-    width:10% ;
-}
+
 /* ANIMATIONS */
