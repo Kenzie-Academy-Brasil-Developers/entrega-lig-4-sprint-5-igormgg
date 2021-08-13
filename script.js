@@ -8,11 +8,11 @@ let textoTurno =document.createElement('p');
 textoTurno.id ='textoDoturno';
 document.body.appendChild(textoTurno);
 const play1 =document.createElement('img');
-play1.setAttribute('src','../assets/img/player-goku.png');
+// play1.setAttribute('src','../assets/img/player-goku.png');
 play1.id ='joga1';
 document.body.appendChild(play1);
 const play2 =document.createElement('img');
-play2.setAttribute('src','../assets/img/player-vegeta.png');
+// play2.setAttribute('src','../assets/img/player-vegeta.png');
 play2.id ='joga2';
 document.body.appendChild(play2);
 
