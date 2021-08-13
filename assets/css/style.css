@@ -193,7 +193,45 @@ main {
     display: none;
 }
 .vitoria {
-    margin-top: 4%;
+    margin: 0 auto;
+    width: 80vw;
+    height: 60%;
+    border-radius: 5px;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    padding: 10px;
+    margin-top: 150px;
+    color: var(--backgWhite);
+}
+.vitoriaGoku{
+    width: 260px;
+    height: 600px;
+    background-image: url(../img/goku-acenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -10px;
+    bottom: -360px;
+}
+.vitoriaVedita{
+    width: 250px;
+    height: 600px;
+    background-image: url(../img/vegetaacenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -45px;
+    bottom: -330px;
+}
+.empate{
+    width: 300px;
+    height: 600px;
+    background-image: url(../img/empate.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -25px;
+    bottom: -330px;
+
 }
 
 .hidden {
@@ -281,6 +319,19 @@ img.button__iniciar{
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--colorFontWhite);
+}
+.regras__subtitle{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--colorFontWhite);
+}
+.texto-vitoria{
+    font-size: 1.2rem;
+    margin-top: 83px;
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    padding: 30px;
+    border-radius: 50px 50px 0px 50px;
 }
 
 .regras__lista{

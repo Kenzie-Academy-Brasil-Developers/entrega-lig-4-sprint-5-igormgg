@@ -51,12 +51,12 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
         }
         if(countOne == 4){
             console.log('vitoriaJogador1')
+            vitoriaJogador1();
             return true;
-            // return vitoriaJogador1();
         }else if(countTwo == 4){
             console.log('vitoriaJogador2')
+            vitoriaJogador2();
             return true
-            // return vitoriaJogador2();
         }
     }
 }
@@ -118,53 +118,56 @@ const percorrerLinha = (mapa,linha) =>{
                     }
                 }    
             }
-            let resultado = '';
+            let vitoria = undefined;
             for(let i=0;i<arrMult.length;i++){
-               resultado = checaVencedorDiagonais(arrMult[i])
+                vitoria = checaVencedorDiagonais(arrMult[i])
+                if(vitoria==true){
+                    i=arrMult.length;
+                }
             }
-    return resultado;
+    return vitoria;
 }
 const checaDiagonalEsquerda = () =>{
-    let resultado = undefined;
+    let vitoria = undefined;
     let mapa = mapear();
         mapa.reverse();
        for(let i=0;i<mapa.length-3;i++){
-        resultado = percorrerLinha(mapa,i);
-        if(resultado==true){
+        vitoria = percorrerLinha(mapa,i);
+        if(vitoria==true){
             i=mapa.length-3;
         }
        }
+    return vitoria
 }
 const checaDiagonalDireita = () => {
-    let resultado = undefined;
+    let vitoria = undefined;
     let mapa = mapear();
        for(let i=0;i<mapa.length-3;i++){
-        resultado = percorrerLinha(mapa,i); 
-        if(resultado==true){
-            i=mapa.length-3;
-        }
-       }      
+            vitoria = percorrerLinha(mapa,i); 
+            if(vitoria==true){
+                i=mapa.length-3;
+            }
+       }
+       return vitoria      
 }
 //condição de empate
 const testaEmpate = (evt) =>{
- let contador =0;
-
+let contador =0;
     for(let linha=0;linha<6;linha++){
         for(let coluna=0;coluna<7;coluna++){
-
-         let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
-         
-         if(teste.firstChild===null){
-            contador =0;
-         }else if(teste.firstChild!==null){  
-            contador++
+            let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
+            if(teste.firstChild===null){
+                contador =0;
+            }else if(teste.firstChild!==null){  
+                contador++
+            }
         }
-
-    } 
-    if(contador===42){
-            empateJogadores()
+        if(contador===42){
+            console.log('EMPATE')        
         }
+    }
 }
+
 const empateJogadores =() =>{
     console.log("empate")
     audio[0].pause()
@@ -174,7 +177,6 @@ const empateJogadores =() =>{
     setTimeout(() => {
         audio[3].volume = 0.4;
     }, 1700);
-
 }
 
 //buscar elemento linha
@@ -194,25 +196,26 @@ const buscarElementlinha = (evt) =>{
          let  valores= teste.firstChild.classList[1];
             if(valores=='jogador1'){
             contadorJogador1++;
-            contadorJogador2=0;                
+            contadorJogador2=0;
             }else if(valores=='jogador2'){
                 contadorJogador2++;
                 contadorJogador1=0;
             }
             if(contadorJogador1===4){
                 console.log("jogador1 ganhou")
+                return true
             }else if(contadorJogador2===4){
-               console.log("jogador2 ganhou")
+                console.log("jogador2 ganhou")
+                return true
             }
-        
             }
         }
-      
-    } 
+    }  
 }
 
 //busca os elementos por coluna
 const buscarElementColuna = (evt)=>{
+    let vitoria = undefined;
     let pai = evt.currentTarget.parentElement;
     let elements = [...pai.childNodes];
     let jogadores=[];
@@ -225,7 +228,7 @@ const buscarElementColuna = (evt)=>{
                 if (status !== undefined){    
                     jogadores[coluna].unshift(status.classList[1])
                                
-                    elementoColunatest(jogadores[coluna])
+                   vitoria = elementoColunatest(jogadores[coluna])
                 }          
                 } 
     }
@@ -242,10 +245,12 @@ let contador2=0;
         contador1=0;                       
     }
     if(contador1===4){
-            console.log("jogador1 venceu!")
+        console.log("jogador1 venceu!")
+        return true
     }else
     if(contador2===4){
         console.log("jogador2 venceu")
+        return true
     }
 }
 //fim da busca dos elementos por coluna
@@ -269,17 +274,26 @@ const vitoriaJogador2 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
-    const divVitoria = document.querySelector('#vitoriaJogador2')
-    divVitoria.classList.remove('hidden')
+    let divPai = document.querySelector('.container-vitoria');
+        divPai.classList.remove('hidden');
+    const divVitoria = document.querySelector('#vitoriaJogador2');
+    divVitoria.classList.remove('hidden');
+}
+const empate = () =>{
+    let divPai = document.querySelector('.container-vitoria');
+        divPai.classList.remove('hidden');
+    let divEmpate = document.querySelector('#empate');
+        divEmpate.classList.remove('hidden');
 }
 const criarDisco = (destino,player) =>{
     let disco = document.createElement('div');
-        disco.classList.add('disco') 
+        disco.classList.add('disco');
         player%2 !== 0? disco.classList.add('jogador1') : disco.classList.add('jogador2');
         destino.appendChild(disco);
         return true;
 }
 const colocarDisco = (evt) =>{
+    let vitoria = undefined;
     let status = false;
     let destino = '';
     let arr = [...evt.currentTarget.childNodes];
@@ -298,14 +312,22 @@ const colocarDisco = (evt) =>{
     if(status == true){
         player++;
     }
-    
-    turnoJogador();
-    buscarElementlinha(evt);
-    buscarElementColuna(evt);
-    checaDiagonalDireita()
-    checaDiagonalEsquerda();
-    testaEmpate(evt);
   
+    vitoria = buscarElementlinha(evt);
+    if(vitoria == undefined){
+        vitoria = buscarElementColuna(evt);       
+    }
+     if(vitoria == undefined ){
+        vitoria = checaDiagonalDireita();
+    }
+    if(vitoria == undefined ){
+        vitoria = checaDiagonalEsquerda();
+    }
+    if(vitoria == undefined ){
+        vitoria = testaEmpate();
+    }
+    console.log(vitoria)
+    turnoJogador();
 }
 const bemVindo = () =>{
 
