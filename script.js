@@ -24,6 +24,7 @@ if( play1.style.display==='block'){
 }
 }
 
+
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
@@ -171,12 +172,15 @@ const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
     let contadorJogador2=0;
     for(let linha=0;linha<6;linha++){
+        contadorJogador2=0;
+        contadorJogador1=0;
         for(let coluna=0;coluna<7;coluna++){
          let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
          if(teste.firstChild===null){
         contadorJogador2=0;
         contadorJogador1=0;
-         }else if(teste.firstChild!==null){  
+         }else if(teste.firstChild!==null){ 
+
          let  valores= teste.firstChild.classList[1];
             if(valores=='jogador1'){
             contadorJogador1++;
@@ -188,16 +192,13 @@ const buscarElementlinha = (evt) =>{
             if(contadorJogador1===4){
                 console.log("jogador1 ganhou")
             }else if(contadorJogador2===4){
-                console.log("jogador2 ganhou")
+               console.log("jogador2 ganhou")
             }
         
             }
         }
-      
-    }   contadorJogador2=0;
-        contadorJogador1=0;
+    } 
 }
-
 
 //busca os elementos por coluna
 const buscarElementColuna = (evt)=>{
@@ -316,7 +317,7 @@ const jogada = (evt) =>{
     colocarDisco(evt);
 }
 const criacaoTabela = () =>{ 
-  
+  play1.style.display ='block';
     for(let coluna = 0; coluna < 7; coluna++){
             let novaColuna = document.createElement('div')
             novaColuna.classList.add(`colunas`)
