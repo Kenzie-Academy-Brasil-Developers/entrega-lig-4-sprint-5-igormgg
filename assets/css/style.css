@@ -38,7 +38,6 @@ html {
     width: 100vw;
     height: 100vh;
 }
-
 button{
     appearance: none;
         -webkit-writing-mode: none;
@@ -209,13 +208,27 @@ main {
 
 .vitoria {
     margin: 0 auto;
-    width: 80vw;
+    width: 90vw;
     height: 60%;
     border-radius: 5px;
     /* background-color: rgba(0, 0, 0, 0.8); */
     padding: 10px;
     margin-top: 150px;
     color: var(--backgWhite);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-vitoria{
+    font-size: 2rem;
+    position: absolute;
+    background-color: rgba(0,0,0,0.9);
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    transform: translateY(-70px);
+    border-radius: 12px;
+
 }
 .vitoriaGoku{
     width: 260px;
@@ -235,7 +248,7 @@ main {
     background-repeat: no-repeat;
     position:absolute;
     right: -45px;
-    bottom: -330px;
+    bottom: -373px;
 }
 .empate{
     width: 300px;
@@ -244,10 +257,20 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     position:absolute;
-    right: -25px;
-    bottom: -330px;
-
+    right: -46px;
+    bottom: -375px;
 }
+.title-fala{
+    font-size: 1.3rem;
+color: orange;
+}
+.container-vitoria{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}   
 
 .hidden {
     display: none;
@@ -295,7 +318,7 @@ main {
     background-repeat: no-repeat; */
 }
 .regras{
-    width: 281px;
+    width: 80vw;
     max-width: 500px;
     height: 552px;
     margin: 0 auto;
@@ -310,12 +333,12 @@ main {
     
 }
 img.button__iniciar{
-    width: 224px;
-    height: 152px;
-    
+    width: 75vw;
+    max-width: 220px;
+    height: auto;
 }
 .nuvemChegada{
-    animation: NuvemChegada  2s ;
+    animation: NuvemChegada  1.5s ;
 }
 .nuvemPartiu{
     animation: NuvemPartiu  2s ;
@@ -348,6 +371,7 @@ img.button__iniciar{
     padding: 30px;
     border-radius: 50px 50px 0px 50px;
 }
+
 
 .regras__lista{
     padding: 5px;
@@ -424,6 +448,36 @@ footer .fa-linkedin-square{
 /* FOOTER */
 
 /* MEDIA */
+
+/* MEDIAS MIN */
+@media only screen and (min-width: 500px) {
+    .vitoria {
+        height: 70%;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .vitoria{
+        height: 80%;
+        width: 80vw;
+        margin-top: 100px;
+    }
+   
+    .vitoriaVedita{
+        width: 310px;
+        bottom: -regras300px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .vitoria{
+        width: 70% ;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .regras{
+        margin-right: 300px;
+    }
+}
+/* MEDIAS MIN */
 
 @media screen and (min-width:321px) and (max-width:539px){
     #reset {

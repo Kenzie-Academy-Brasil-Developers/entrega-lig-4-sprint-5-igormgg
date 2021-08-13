@@ -17,8 +17,6 @@ play2.id ='joga2';
 document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
-
-
 //FUNÇÕES
 const turnoJogador =() =>{
     if( play2.style.display==='block'){
@@ -35,31 +33,6 @@ const turnoJogador =() =>{
     document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
 }
 }
-// const checaVencedorDiagonais = (arrDiagonal) =>{
-//     let vencedor = 0;
-//     let countOne = 0;
-//     let countTwo = 0;
-//     for(let i=0; i<arrDiagonal.length;i++){
-//         if(arrDiagonal[i] == 1){
-//             countTwo= 0;
-//             countOne++;
-//         } else if(arrDiagonal[i] == 2){
-//             countOne = 0;
-//             countTwo++;
-//         }
-//         if(countOne == 4){
-//             console.log('vitoriaJogador1')
-//             // vitoriaJogador1();
-//             return true;
-//         }else if(countTwo == 4){
-//             console.log('vitoriaJogador2')
-//             // vitoriaJogador2();
-//             return true
-//         }
-//     }
-// }
-
-
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let countOne = 0;
     let countTwo = 0;
@@ -297,7 +270,9 @@ const vitoriaJogador1 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
-    const divVitoria = document.querySelector('#vitoriaJogador2')
+    let divPai = document.querySelector('.container-vitoria');
+    divPai.classList.remove('hidden');
+    const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
 }
 const vitoriaJogador2 = () => {
@@ -351,8 +326,6 @@ const colocarDisco = (evt) =>{
             i=arr.length;
         }        
        }
-      
-      
            status = criarDisco(destino,player);
       
     if(status == true){
