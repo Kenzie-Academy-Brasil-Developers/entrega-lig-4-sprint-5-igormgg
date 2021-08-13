@@ -181,8 +181,42 @@ main {
     margin-top: 20px;
     display: none;
 }
+.container-vitoria{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
 .vitoria {
-    margin-top: 4%;
+    margin: 0 auto;
+    width: 80vw;
+    height: 60%;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    margin-top: 150px;
+    color: var(--backgWhite);
+}
+.vitoriaGoku{
+    width: 260px;
+    height: 600px;
+    background-image: url(../img/goku-acenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -10px;
+    bottom: -360px;
+}
+.vitoriaVedita{
+    width: 250px;
+    height: 600px;
+    background-image: url(../img/vegetaacenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -45px;
+    bottom: -330px;
 }
 
 .hidden {
@@ -211,7 +245,7 @@ main {
     animation-iteration-count: 3;
 }
 .fade{
-    animation: fade 1s ease-in-out;
+    animation: fade 1.4s ease-in-out;
 }
 .fadeIn{
     animation: fadeIn 0.5s ease-in-out;
@@ -231,7 +265,7 @@ main {
     background-repeat: no-repeat; */
 }
 .regras{
-    width: 281px;
+    width: 80vw;
     max-width: 500px;
     height: 552px;
     margin: 0 auto;
@@ -246,12 +280,13 @@ main {
     
 }
 img.button__iniciar{
-    width: 224px;
-    height: 152px;
+    width: 75vw;
+    max-width: 220px;
+    height: auto;
     
 }
 .nuvemChegada{
-    animation: NuvemChegada  2s ;
+    animation: NuvemChegada  1.5s ;
 }
 .nuvemPartiu{
     animation: NuvemPartiu  2s ;
@@ -270,6 +305,19 @@ img.button__iniciar{
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--colorFontWhite);
+}
+.regras__subtitle{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--colorFontWhite);
+}
+.texto-vitoria{
+        font-size: 1.2rem;
+    margin-top: 83px;
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    border-radius: 150px 150px 0px 150px;
 }
 .regras__lista{
     padding: 5px;
@@ -304,6 +352,38 @@ footer {
 /* FOOTER */
 
 /* MEDIA */
+
+/* MEDIAS MIN */
+@media only screen and (min-width: 500px) {
+    .vitoria {
+        height: 70%;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .vitoria{
+        height: 80%;
+        width: 80vw;
+        margin-top: 100px;
+    }
+   
+    .vitoriaVedita{
+        width: 310px;
+        bottom: -regras300px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .vitoria{
+        width: 70% ;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .regras{
+        margin-right: 300px;
+    }
+}
+/* MEDIAS MIN */
+
+
 
 @media screen and (min-width:321px) and (max-width:539px){
     #botao-radar {
@@ -350,6 +430,7 @@ footer {
         width: 131px;
         height: 100px;
     }
+    
 
     #containerTabela {
         max-width: 700px;
@@ -443,18 +524,19 @@ footer {
 }
 @keyframes NuvemChegada {
     from{
-        transform: translate3d(-300px, -140px, -400px);
+        transform: translate3d(-1000px, -140px, -400px);
     }
     to{
         transform: translate3d(0px,0px, 0px);
     }
     
 }
+
 @keyframes NuvemPartiu {
-    from{
-        transform: translate3d(0px,0px, 0px);
+    0%{
+        transform: translate3d(0px, -10px, 0px);
     }
-    to{
+    100%{
         transform: translate3d(400px, -200px, -400px);
         
     }
