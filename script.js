@@ -163,7 +163,6 @@ let contador =0;
 }
 
 const empateJogadores =() =>{
-    console.log("empate")
     audio[0].pause()
     audio[3].play()
     audio[3].volume = 0.1;
