@@ -209,11 +209,9 @@ main {
 .vitoria {
     margin: 0 auto;
     width: 90vw;
-    height: 60%;
+    height: 100%;
     border-radius: 5px;
-    /* background-color: rgba(0, 0, 0, 0.8); */
     padding: 10px;
-    margin-top: 150px;
     color: var(--backgWhite);
     display: flex;
     flex-direction: column;
@@ -231,38 +229,32 @@ main {
 
 }
 .vitoriaGoku{
-    width: 260px;
+    width: 100%;
     height: 600px;
     background-image: url(../img/goku-acenando.png);
     background-size: contain;
     background-repeat: no-repeat;
-    position:absolute;
-    right: -10px;
-    bottom: -360px;
+    background-position: right;
 }
 .vitoriaVedita{
-    width: 250px;
+    width: 100%;
     height: 600px;
     background-image: url(../img/vegetaacenando.png);
     background-size: contain;
     background-repeat: no-repeat;
-    position:absolute;
-    right: -45px;
-    bottom: -373px;
+    background-position: right;
 }
 .empate{
-    width: 300px;
+    width: 100%;
     height: 600px;
     background-image: url(../img/empate.png);
     background-size: contain;
     background-repeat: no-repeat;
-    position:absolute;
-    right: -46px;
-    bottom: -375px;
+    background-position: right;
 }
 .title-fala{
     font-size: 1.3rem;
-color: orange;
+    color: orange;
 }
 .container-vitoria{
     position: absolute;
@@ -270,7 +262,14 @@ color: orange;
     right: 0px;
     bottom: 0px;
     left: 0px;
-}   
+}  
+
+.jogar-novamente {
+    font-size: 1.7rem;
+    background-color: rgba(56, 56, 56, 0.9);
+    color: white;
+    border-radius: 0px 0px 50px 50px;
+}
 
 .hidden {
     display: none;
@@ -380,7 +379,7 @@ img.button__iniciar{
     background-color: rgba(0,0,0,0.9);
     color: #fff;
     padding: 30px;
-    border-radius: 50px 50px 0px 50px;
+    border-radius: 50px 50px 0px 0px;
 }
 
 .btn{
@@ -466,26 +465,21 @@ footer .fa-linkedin-square{
 
 /* MEDIAS MIN */
 @media only screen and (min-width: 500px) {
-    .vitoria {
-        height: 70%;
-    }
+    /* .vitoria {
+        height: 100%;
+    } */
 }
 @media only screen and (min-width: 800px) {
-    .vitoria{
+    /* .vitoria{
         height: 80%;
         width: 80vw;
         margin-top: 100px;
-    }
-   
-    .vitoriaVedita{
-        width: 310px;
-        bottom: -regras300px;
-    }
+    } */
 }
 @media only screen and (min-width: 1000px) {
-    .vitoria{
+    /* .vitoria{
         width: 70% ;
-    }
+    } */
 }
 @media only screen and (min-width: 1200px) {
     .regras{
@@ -504,30 +498,16 @@ footer .fa-linkedin-square{
         max-width: 288px;
         max-height: 247.68px;
     }
-    
-    }
-    #joga2{
-        display:block;
-        position: absolute;
-        color:#1f2c4f;
-        top: 35%;
-        right:30%;
-        z-index: 1;
-        height: 10px;
-        width: 20%;
-    }
-    #textoDoturno{
-        color:#e76a24;    
-        position: absolute;
-        top: 24%;
-        font-size: 15px;
-    }
+
     footer span{
         font-size: 1.4rem;
     }
     footer .fa-linkedin-square{
         font-size: 12px;
     }
+    
+}
+    
 
 @media screen and (min-width:540px) and (max-width:720px){
     .regras {
@@ -630,55 +610,26 @@ footer .fa-linkedin-square{
         background-position: center;
     }
 
-    #joga1{
-        display:none;
-        position: absolute;
-        color:orangered;
-        top: 20%;
-        left: 26%;
-        z-index: 1;
-        height: 20px;
-        width: 20%;
-      }
-    #joga2{
-        display:block;
-        position: absolute;
-        color:#1f2c4f;
-        top: 20%;
-        right:26%;
-        z-index: 1;
-        height: 20px;
-        width: 20%;
-  }
-    
-    /* top: 30%;
-    left: 7% ;
-    z-index: 1;
-    height: 150px;
-    width: 100px;
-*/
-} 
-#joga2{
-    display:none;
-    position: absolute;
-    top: 30%;
-    right: 7% ;
-    z-index: 1;
-    height: 150px;
-    width: 100px;
-}
-#textoDoturno{
-    color:#e76a24;    
-    position: absolute;
-    top: 20%;}
-    footer {
+    footer span{
         font-size: 2rem;
     }
-
-
+    footer .fa-linkedin-square{
+        font-size: 16px;
+    }
+}
 
 @media screen and (min-width:1025px){
+    .vitoria{
+        width: 70% ;
+    }
+
+    .jogar-novamente:hover {
+        color: var(--red);
+        background-color: var(--platinum);
+    }
+
     .regras {
+        margin-right: 300px;
         font-size: 1rem;
     }
 
@@ -717,9 +668,6 @@ footer .fa-linkedin-square{
     #reset:hover {
         width: 150px;
         height: 114.6px;
-       
-        
-
     }
 
     #containerTabela {
