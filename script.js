@@ -35,8 +35,6 @@ const turnoJogador =() =>{
     document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
 }
 }
-
-
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
