@@ -11,8 +11,6 @@ play2.id ='joga2'
 document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
-
-
 //FUNÇÕES
 const turnoJogador =() =>{
 if( play1.style.display==='block'){
@@ -23,7 +21,6 @@ if( play1.style.display==='block'){
     play2.style.display='none'
 }
 }
-
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
