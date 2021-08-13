@@ -392,40 +392,25 @@ img.button__iniciar{
     cursor: url('../cursor/cursorZinicio.cur'), auto;
 }
 
-#joga1 {
-    color: yellow;
-    background-color: rgba(0, 128, 0, 0.65);
-    display: none;
+#joga1{
+    display:none;
     position: absolute;
-    top: 8%;
-    left: 1%;
+    color:orangered;
+    top: 23%;
+    left: 26%;
     z-index: 1;
-    height: 30px;
-    width: 55px;
-    font-family: var(--font-dbz);
-    text-transform: uppercase;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur( 10.0px );
+    height: 50px;
+    width: 20%;
 }
-
-#joga2 {
-    color:blue;
-    background-color: rgba(0, 179, 0, 0.65);
-    display: none;
+#joga2{
+    display:block;
     position: absolute;
-    bottom: 8%;
-    right: 1%;
+    color:#1f2c4f;
+    top: 23%;
+    right:26%;
     z-index: 1;
-    height: 30px;
-    width: 55px;
-    font-family: var(--font-dbz);
-    text-transform: uppercase;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur( 10.0px );
+    height: 50px;
+    width: 20%;
 }
 /* MAIN */
 
@@ -504,6 +489,32 @@ footer .fa-linkedin-square{
         max-width: 288px;
         max-height: 247.68px;
     }
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 23%;
+        left: 26%;
+        z-index: 1;
+        height: 50px;
+        width: 20%;
+    
+    }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 35%;
+        right:30%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+    }
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 24%;
+    font-size: 15px;}
     footer {
         font-size: 1.4rem;
     }
@@ -522,22 +533,70 @@ footer .fa-linkedin-square{
         max-width: 432px;
         max-height: 371.5px;
     }
-    footer {
-        font-size: 2rem;
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 26%;
+        left: 26%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+      }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 26%;
+        right:26%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+        
     }
-    footer .fa-linkedin-square{
-        font-size: 16px;
-    }
+   
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 23%;
+font-size: 15px;}
+footer {
+    font-size: 2rem;
+}
+footer .fa-linkedin-square{
+    font-size: 16px;
+}
 }
     
 
 
 @media screen and (min-width:721px) and (max-width:999px){
 
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 20%;
+        left: 26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+    
+    }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 20%;
+        right:26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+    }
+
     #reset {
         width: 131px;
         height: 100px;
-        font-size: 24px;
     }
 
     #containerTabela {
@@ -548,17 +607,6 @@ footer .fa-linkedin-square{
     #tabela {
         border: 30px solid var(--cor-borda-tabela);
     }
-
-    #joga1 {
-        font-size: 25px;
-        width: 80px;
-        height: 48px;
-    }
-
-    #joga2 {
-        font-size: 25px;
-        width: 80px;
-        height: 48px;
     footer {
         font-size: 2rem;
     }
@@ -571,7 +619,6 @@ footer .fa-linkedin-square{
     #reset {
         width: 131px;
         height: 100px;
-        font-size: 24px;
     }
 
     #containerTabela {
@@ -587,17 +634,50 @@ footer .fa-linkedin-square{
         background-image: var(--bg-img-fullsize-home);
         background-position: center;
     }
-  
-    #joga1 {
-        font-size: 30px;
-        width: 95px;
-        height: 55px;
-    }
 
-    #joga2 {
-        font-size: 30px;
-        width: 95px;
-        height: 55px;
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 20%;
+        left: 26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+      }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 20%;
+        right:26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+  }
+    
+    top: 30%;
+    left: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 30%;
+    right: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 20%;}
+    footer {
+        font-size: 2rem;
     }
     footer .fa-linkedin-square{
         font-size: 16px;
@@ -624,7 +704,6 @@ footer .fa-linkedin-square{
     #reset {
         width: 157px;
         height: 120px;
-        font-size: 30px;
     }
 
     #reset:hover {
@@ -640,22 +719,6 @@ footer .fa-linkedin-square{
 
     #tabela {
         border: 30px solid var(--cor-borda-tabela);
-    }
-
-    #joga1 {
-        font-size: 36px;
-        top: 45%;
-        left: 10%;
-        width: 110px;
-        height: 80px;
-    }
-
-    #joga2 {
-        font-size: 36px;
-        bottom: 45%;
-        right: 10%;
-        width: 110px;
-        height: 80px;
     }
     
     footer {
