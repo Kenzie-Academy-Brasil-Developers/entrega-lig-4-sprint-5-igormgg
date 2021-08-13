@@ -504,30 +504,16 @@ footer .fa-linkedin-square{
         max-width: 288px;
         max-height: 247.68px;
     }
-    
-    }
-    #joga2{
-        display:block;
-        position: absolute;
-        color:#1f2c4f;
-        top: 35%;
-        right:30%;
-        z-index: 1;
-        height: 10px;
-        width: 20%;
-    }
-    #textoDoturno{
-        color:#e76a24;    
-        position: absolute;
-        top: 24%;
-        font-size: 15px;
-    }
+
     footer span{
         font-size: 1.4rem;
     }
     footer .fa-linkedin-square{
         font-size: 12px;
     }
+    
+}
+    
 
 @media screen and (min-width:540px) and (max-width:720px){
     .regras {
@@ -630,52 +616,13 @@ footer .fa-linkedin-square{
         background-position: center;
     }
 
-    #joga1{
-        display:none;
-        position: absolute;
-        color:orangered;
-        top: 20%;
-        left: 26%;
-        z-index: 1;
-        height: 20px;
-        width: 20%;
-      }
-    #joga2{
-        display:block;
-        position: absolute;
-        color:#1f2c4f;
-        top: 20%;
-        right:26%;
-        z-index: 1;
-        height: 20px;
-        width: 20%;
-  }
-    
-    /* top: 30%;
-    left: 7% ;
-    z-index: 1;
-    height: 150px;
-    width: 100px;
-*/
-} 
-#joga2{
-    display:none;
-    position: absolute;
-    top: 30%;
-    right: 7% ;
-    z-index: 1;
-    height: 150px;
-    width: 100px;
-}
-#textoDoturno{
-    color:#e76a24;    
-    position: absolute;
-    top: 20%;}
-    footer {
+    footer span{
         font-size: 2rem;
     }
-
-
+    footer .fa-linkedin-square{
+        font-size: 16px;
+    }
+}
 
 @media screen and (min-width:1025px){
     .regras {
@@ -717,9 +664,6 @@ footer .fa-linkedin-square{
     #reset:hover {
         width: 150px;
         height: 114.6px;
-       
-        
-
     }
 
     #containerTabela {
