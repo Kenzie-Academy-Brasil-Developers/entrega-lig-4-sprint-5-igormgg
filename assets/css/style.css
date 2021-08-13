@@ -329,8 +329,29 @@ color: orange;
     justify-content: space-around;
     padding: 10px;
     margin-top: 33px;
-    background-color: rgba(0, 0, 0, 0.8)
-    
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: .9rem;
+}
+.regras__title{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--colorFontWhite);
+}
+.regras__subtitle{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--colorFontWhite);
+}
+.regras__lista{
+    padding: 5px;
+}
+.regras__item{
+    padding: 5px;
+    color: var(--backgWhite);
+}
+.regras__p{
+    padding: 5px 0px 10px 0px;
+    color: var(--colorFontWhite);
 }
 img.button__iniciar{
     width: 75vw;
@@ -353,16 +374,6 @@ img.button__iniciar{
 .esconder{
     background-color: var(--backgWhite);
 }
-.regras__title{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--colorFontWhite);
-}
-.regras__subtitle{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--colorFontWhite);
-}
 .texto-vitoria{
     font-size: 1.2rem;
     margin-top: 83px;
@@ -372,18 +383,6 @@ img.button__iniciar{
     border-radius: 50px 50px 0px 50px;
 }
 
-
-.regras__lista{
-    padding: 5px;
-}
-.regras__item{
-    padding: 5px;
-    color: var(--backgWhite);
-}
-.regras__p{
-    padding: 5px 0px 10px 0px;
-    color: var(--colorFontWhite);
-}
 .btn{
     padding: 0px 10px 0px 10px;
 }
@@ -439,8 +438,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.25rem;
-
+}
+footer span {
+    font-size: 1rem;
 }
 footer a{
     cursor: url('../cursor/kuririn.cur'), auto;
@@ -522,7 +522,7 @@ footer .fa-linkedin-square{
         top: 24%;
         font-size: 15px;
     }
-    footer {
+    footer span{
         font-size: 1.4rem;
     }
     footer .fa-linkedin-square{
@@ -530,6 +530,18 @@ footer .fa-linkedin-square{
     }
 
 @media screen and (min-width:540px) and (max-width:720px){
+    .regras {
+        font-size: 1rem;
+    }
+
+    .regras__title {
+        font-size: 1.5rem;
+    }
+
+    .regras__subtitle {
+        font-size: 1.2rem;
+    }
+
     #reset {
         width: 85.15px;
         height: 65px;
@@ -540,20 +552,7 @@ footer .fa-linkedin-square{
         max-height: 371.5px;
     }
 
-    footer {
-        font-size: 2rem;
-    }
-    footer .fa-linkedin-square{
-        font-size: 16px;
-    }
-   
-    #textoDoturno{
-        color:#e76a24;    
-        position: absolute;
-        top: 23%;
-        font-size: 15px;
-    }
-    footer {
+    footer span{
         font-size: 2rem;
     }
     footer .fa-linkedin-square{
@@ -564,6 +563,17 @@ footer .fa-linkedin-square{
 
 
 @media screen and (min-width:721px) and (max-width:999px){
+    .regras {
+        font-size: 1rem;
+    }
+
+    .regras__title {
+        font-size: 1.5rem;
+    }
+
+    .regras__subtitle {
+        font-size: 1.2rem;
+    }
 
     #reset {
         width: 131px;
@@ -579,7 +589,7 @@ footer .fa-linkedin-square{
     #tabela {
         border: 30px solid var(--cor-borda-tabela);
     }
-    footer {
+    footer span{
         font-size: 2rem;
     }
     footer .fa-linkedin-square{
@@ -588,6 +598,18 @@ footer .fa-linkedin-square{
 }
 
 @media screen and (min-width:1000px) and (max-width:1024px){
+    .regras {
+        font-size: 1rem;
+    }
+
+    .regras__title {
+        font-size: 1.5rem;
+    }
+
+    .regras__subtitle {
+        font-size: 1.2rem;
+    }
+    
     #reset {
         width: 131px;
         height: 100px;
@@ -656,6 +678,18 @@ footer .fa-linkedin-square{
 
 
 @media screen and (min-width:1025px){
+    .regras {
+        font-size: 1rem;
+    }
+
+    .regras__title {
+        font-size: 1.5rem;
+    }
+
+    .regras__subtitle {
+        font-size: 1.2rem;
+    }
+    
     :root{
         --cor-header: #63525f87;
         --cor-footer: #63525f87;
@@ -713,7 +747,7 @@ footer .fa-linkedin-square{
         height: 80px;
     }
     
-    footer {
+    footer span{
         font-size: 2rem;
     }
     footer .fa-linkedin-square{
