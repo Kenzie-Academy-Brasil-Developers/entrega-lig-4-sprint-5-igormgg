@@ -223,6 +223,14 @@ const vitoriaJogador2 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
+const colunaCheia = () =>{
+    let busca = document.getElementById('tabela');
+        navigator.vibrate(200);
+        busca.classList.add('vibracao');
+        setTimeout(function(){
+            busca.classList.remove('vibracao');
+        },200);
+}
 const criarDisco = (destino,player) =>{
     let disco = document.createElement('div');
         disco.classList.add('disco') 
@@ -233,8 +241,13 @@ const criarDisco = (destino,player) =>{
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
+    let primeiraCelula = evt.currentTarget.firstElementChild;
     let arr = [...evt.currentTarget.childNodes]; 
         arr = arr.reverse();
+        if(primeiraCelula.firstElementChild !== null){
+            colunaCheia();
+            return false;
+        }
        for(let i=0;i<arr.length;i++){
         if(arr[i].lastElementChild == null){
             destino = arr[i];
