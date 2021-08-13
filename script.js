@@ -51,11 +51,11 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
         }
         if(countOne == 4){
             console.log('vitoriaJogador1')
-            vitoriaJogador1();
+            // vitoriaJogador1();
             return true;
         }else if(countTwo == 4){
             console.log('vitoriaJogador2')
-            vitoriaJogador2();
+            // vitoriaJogador2();
             return true
         }
     }
@@ -163,7 +163,7 @@ let contador =0;
             }
         }
         if(contador===42){
-            console.log('EMPATE')        
+            empate();       
         }
     }
 }
@@ -285,6 +285,14 @@ const empate = () =>{
     let divEmpate = document.querySelector('#empate');
         divEmpate.classList.remove('hidden');
 }
+const colunaCheia = () =>{
+    let busca = document.getElementById('tabela');
+        navigator.vibrate(200);
+        busca.classList.add('vibracao');
+        setTimeout(function(){
+            busca.classList.remove('vibracao');
+        },200);
+}
 const criarDisco = (destino,player) =>{
     let disco = document.createElement('div');
         disco.classList.add('disco');
@@ -296,9 +304,13 @@ const colocarDisco = (evt) =>{
     let vitoria = undefined;
     let status = false;
     let destino = '';
-    let arr = [...evt.currentTarget.childNodes];
-    
+    let primeiraCelula = evt.currentTarget.firstElementChild;
+    let arr = [...evt.currentTarget.childNodes]; 
         arr = arr.reverse();
+        if(primeiraCelula.firstElementChild !== null){
+            colunaCheia();
+            return false;
+        }
        for(let i=0;i<arr.length;i++){
         if(arr[i].lastElementChild == null){
             destino = arr[i];
