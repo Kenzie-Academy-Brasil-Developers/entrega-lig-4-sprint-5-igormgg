@@ -1,13 +1,19 @@
 //VARIAVEIS GLOBAIS
-const tabela = document.querySelector('#tabela')
-const btnReset = document.querySelector('#reset')
-const audio = document.querySelectorAll('audio')
+const tabela = document.querySelector('#tabela');
+const btnReset = document.querySelector('#reset');
+const audio = document.querySelectorAll('audio');
 let player = 1;
-let play1 =document.createElement('p')
-play1.id ='joga1'
+//let testeEmpate=0;
+let textoTurno =document.createElement('p');
+textoTurno.id ='textoDoturno';
+document.body.appendChild(textoTurno);
+const play1 =document.createElement('img');
+play1.setAttribute('src','../assets/img/player-goku.png');
+play1.id ='joga1';
 document.body.appendChild(play1);
-let play2 =document.createElement('p')
-play2.id ='joga2'
+const play2 =document.createElement('img');
+play2.setAttribute('src','../assets/img/player-vegeta.png');
+play2.id ='joga2';
 document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
@@ -15,14 +21,21 @@ document.body.appendChild(play2);
 
 //FUNÇÕES
 const turnoJogador =() =>{
-if( play1.style.display==='block'){
+    if( play2.style.display==='block'){
+       
+    play1.style.display='block'
+    play2.style.display='none';
+   
+    textoTurno.innerHTML =("Turno do jogador um")
+     document.getElementById ('textoDoturno').style.color = '#e76a24'; 
+}else{
     play1.style.display='none'
     play2.style.display='block'
-}else{
-    play1.style.display='block'
-    play2.style.display='none'
+    textoTurno.innerHTML =("Turno do jogador dois")
+    document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
 }
 }
+
 
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
@@ -58,6 +71,7 @@ const codigoJogador = (jogador) =>{
     }
 }
 const mapear = () =>{
+
     let busca = document.querySelector('#tabela')
     let arrTabela = busca.childNodes;
     let newArr = [];
@@ -145,11 +159,11 @@ const testaEmpate = (evt) =>{
          }else if(teste.firstChild!==null){  
             contador++
         }
-        if(contador===42){
+
+    } 
+    if(contador===42){
             empateJogadores()
         }
-    }
-}
 }
 const empateJogadores =() =>{
     console.log("empate")
@@ -162,36 +176,39 @@ const empateJogadores =() =>{
     }, 1700);
 
 }
+
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
     let contadorJogador2=0;
     for(let linha=0;linha<6;linha++){
+        contadorJogador2=0;
+        contadorJogador1=0;
         for(let coluna=0;coluna<7;coluna++){
          let teste = document.querySelector(`[data-coluna='${coluna}'][data-celula='${linha}']`)
          if(teste.firstChild===null){
         contadorJogador2=0;
         contadorJogador1=0;
-         }else if(teste.firstChild!==null){  
+         }else if(teste.firstChild!==null){ 
+
          let  valores= teste.firstChild.classList[1];
             if(valores=='jogador1'){
             contadorJogador1++;
             contadorJogador2=0;                
             }else if(valores=='jogador2'){
                 contadorJogador2++;
-                contadorJogador1-=contadorJogador1;
+                contadorJogador1=0;
             }
             if(contadorJogador1===4){
                 console.log("jogador1 ganhou")
             }else if(contadorJogador2===4){
-                console.log("jogador2 ganhou")
+               console.log("jogador2 ganhou")
             }
         
             }
         }
       
-    }   contadorJogador2=0;
-        contadorJogador1=0;
+    } 
 }
 
 //busca os elementos por coluna
@@ -265,27 +282,33 @@ const criarDisco = (destino,player) =>{
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
-    let arr = [...evt.currentTarget.childNodes]; 
+    let arr = [...evt.currentTarget.childNodes];
+    
         arr = arr.reverse();
        for(let i=0;i<arr.length;i++){
         if(arr[i].lastElementChild == null){
             destino = arr[i];
             i=arr.length;
         }        
-       } 
-    status = criarDisco(destino,player);
+       }
+      
+      
+           status = criarDisco(destino,player);
+      
     if(status == true){
         player++;
     }
     
+    turnoJogador();
     buscarElementlinha(evt);
     buscarElementColuna(evt);
     checaDiagonalDireita()
     checaDiagonalEsquerda();
     testaEmpate(evt);
-    turnoJogador();
+  
 }
 const bemVindo = () =>{
+
     let buttonJogar = document.querySelector('.btn__jogar');
     let busca = document.querySelector('#conteudo__regras');
     let buscaBody = document.getElementsByTagName('body')[0];
@@ -298,17 +321,21 @@ const bemVindo = () =>{
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
-                buscaBody.classList.add('fadeIn');    
+                buscaBody.classList.add('fadeIn');  
+            play1.style.display='block'
+            textoTurno.innerHTML= "Turno do jogador um" 
             },1000);
         } );
-       
+
 }
 const jogada = (evt) =>{
     colocarDisco(evt);
 }
+
 const criacaoTabela = () =>{ 
-  
+    
     for(let coluna = 0; coluna < 7; coluna++){
+       
             let novaColuna = document.createElement('div')
             novaColuna.classList.add(`colunas`)
             novaColuna.id = (`coluna${coluna}`)
@@ -323,7 +350,7 @@ const criacaoTabela = () =>{
             novaColuna.appendChild(novaCelula);          
         }
     }  
-   
+ 
     btnReset.addEventListener('click',reset)
 }
 const reset = () => {

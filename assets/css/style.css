@@ -5,7 +5,7 @@
     --img-yellow-ball: url(../img/yellow-ball.png);
     --img-blue-ball: url(../img/blue-ball.png);
     --img-botao-radar: url(../img/botao-radar.png);
-
+   
     --color1: #140f07;
     --cor-header: #1f2c4f;
     --cor-footer: #5560aa;
@@ -282,9 +282,7 @@ img.button__iniciar{
     font-weight: bold;
     color: var(--colorFontWhite);
 }
-.regras__conteudo{
 
-}
 .regras__lista{
     padding: 5px;
 }
@@ -328,7 +326,31 @@ footer {
     #containerTabela {
         max-width: 288px;
         max-height: 247.68px;
+    }#joga1{
+        display:none;
+        position: absolute;
+        
+        top: 20%;
+        left: 4% ;
+        z-index: 1;
+        height: 50px;
+        width: 30px;
+    
     }
+    #joga2{
+        display:none;
+        position: absolute;
+        top: 20%;
+        right: 4%;
+        z-index: 1;
+        height: 50px;
+        width: 30px;
+    }
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 24%;
+    font-size: 15px;}
 }
 
 @media screen and (min-width:540px) and (max-width:720px){
@@ -341,9 +363,63 @@ footer {
         max-width: 432px;
         max-height: 371.5px;
     }
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 20%;
+    left: 4% ;
+    z-index: 1;
+    height: 50px;
+    width: 30px;
+
 }
+#joga2{
+    display:none;
+    position: absolute;
+    top: 20%;
+    right: 4%;
+    z-index: 1;
+    height: 50px;
+    width: 30px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 23%;
+font-size: 15px;}
+}
+    
+
 
 @media screen and (min-width:721px) and (max-width:999px){
+
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 20%;
+    left: 6% ;
+    z-index: 1;
+    height: 100px;
+    width: 50px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 20%;
+    right: 6%;
+    z-index: 1;
+    height: 100px;
+    width: 50px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 21%;
+font-size: 15px;}
+
     #botao-radar {
         width: 131px;
         height: 100px;
@@ -378,6 +454,31 @@ footer {
         background-image: var(--bg-img-fullsize-home);
         background-position: center;
     }
+
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 30%;
+    left: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 30%;
+    right: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 20%;}
 }
 
 @media screen and (min-width:1025px){
@@ -418,6 +519,30 @@ footer {
         background-position: center;
         background-size: contain;
     }
+    #joga1{
+        display:none;
+        position: absolute;
+        
+        top: 30%;
+        left: 7% ;
+        z-index: 1;
+        height: 150px;
+        width: 100px;
+    
+    }
+    #joga2{
+        display:none;
+        position: absolute;
+        top: 30%;
+        right: 7% ;
+        z-index: 1;
+        height: 150px;
+        width: 100px;
+    }
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 23%;}
 }
 
 /* MEDIA */
@@ -492,4 +617,5 @@ footer {
         transform: translateY(0px);
     }
 }
+
 /* ANIMATIONS */
