@@ -2,37 +2,24 @@
 const tabela = document.querySelector('#tabela');
 const btnReset = document.querySelector('#reset');
 const audio = document.querySelectorAll('audio');
+const play1 = document.querySelector('#joga1');
+const play2 = document.querySelector('#joga2');
 let player = 1;
-//let testeEmpate=0;
-let textoTurno =document.createElement('p');
-textoTurno.id ='textoDoturno';
-document.body.appendChild(textoTurno);
-const play1 =document.createElement('img');
-// play1.setAttribute('src','../assets/img/player-goku.png');
-play1.id ='joga1';
-document.body.appendChild(play1);
-const play2 =document.createElement('img');
-// play2.setAttribute('src','../assets/img/player-vegeta.png');
-play2.id ='joga2';
-document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
 //FUNÇÕES
-const turnoJogador =() =>{
+const turnoJogador = () =>{
     if( play2.style.display==='block'){
-       
     play1.style.display='block'
     play2.style.display='none';
-   
-    textoTurno.innerHTML =("Turno do jogador um")
-     document.getElementById ('textoDoturno').style.color = '#e76a24'; 
-}else{
+    }
+
+    else {
     play1.style.display='none'
     play2.style.display='block'
-    textoTurno.innerHTML =("Turno do jogador dois")
-    document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
+    }
 }
-}
+
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let countOne = 0;
     let countTwo = 0;
@@ -364,7 +351,6 @@ const bemVindo = () =>{
                 busca.classList.add('hidden');
                 buscaBody.classList.add('fadeIn');  
             play1.style.display='block'
-            textoTurno.innerHTML= "Turno do jogador um" 
             },1000);
         } );
 
