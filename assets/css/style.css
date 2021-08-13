@@ -460,7 +460,8 @@ footer .fa-linkedin-square{
         color:#e76a24;    
         position: absolute;
         top: 24%;
-    font-size: 15px;}
+        font-size: 15px;
+    }
     footer {
         font-size: 1.4rem;
     }
@@ -501,17 +502,18 @@ footer .fa-linkedin-square{
         
     }
    
-#textoDoturno{
-    color:#e76a24;    
-    position: absolute;
-    top: 23%;
-font-size: 15px;}
-footer {
-    font-size: 2rem;
-}
-footer .fa-linkedin-square{
-    font-size: 16px;
-}
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 23%;
+        font-size: 15px;
+    }
+    footer {
+        font-size: 2rem;
+    }
+    footer .fa-linkedin-square{
+        font-size: 16px;
+    }
 }
     
 
@@ -602,13 +604,13 @@ footer .fa-linkedin-square{
         width: 20%;
   }
     
-    top: 30%;
+    /* top: 30%;
     left: 7% ;
     z-index: 1;
     height: 150px;
     width: 100px;
-
-}
+*/
+} 
 #joga2{
     display:none;
     position: absolute;
