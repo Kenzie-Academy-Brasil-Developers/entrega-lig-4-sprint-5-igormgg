@@ -29,22 +29,33 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
     let countTwo = 0;
+    let ultimoJogador = 0;
     for(let i=0; i<arrDiagonal.length;i++){
-        if(arrDiagonal[i] == 1){
-            countTwo= 0;
-            countOne++;
-        } else if(arrDiagonal[i] == 2){
-            countOne = 0;
-            countTwo++;
-        }
+            if(arrDiagonal[i] == 0){
+                if(ultimoJogador == 1){
+                    countOne=0;
+                } else if(ultimoJogador == 2){
+                    countTwo=0;
+                }
+            }
+            if(arrDiagonal[i] == 1){
+                countTwo= 0;
+                countOne++;
+                ultimoJogador = 1;
+            }
+             if(arrDiagonal[i] == 2){
+                countOne = 0;
+                countTwo++;
+                ultimoJogador = 2;
+            }
         if(countOne == 4){
             console.log('vitoriaJogador1')
-            return true;
-            // return vitoriaJogador1();
+            return vitoriaJogador1();
+            // return true;
         }else if(countTwo == 4){
             console.log('vitoriaJogador2')
-            return true
-            // return vitoriaJogador2();
+            return vitoriaJogador2();
+            // return true
         }
     }
 }
@@ -105,6 +116,7 @@ const percorrerLinha = (mapa,linha) =>{
                     }
                 }    
             }
+            
             let resultado = '';
             for(let i=0;i<arrMult.length;i++){
                resultado = checaVencedorDiagonais(arrMult[i])
@@ -185,7 +197,6 @@ const buscarElementlinha = (evt) =>{
         
             }
         }
-      
     } 
 }
 
@@ -205,7 +216,7 @@ const buscarElementColuna = (evt)=>{
                                
                     elementoColunatest(jogadores[coluna])
                 }          
-                } 
+            } 
     }
 }
 const elementoColunatest =(jogador)=>{
@@ -236,7 +247,9 @@ const vitoriaJogador1 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
-    const divVitoria = document.querySelector('#vitoriaJogador2')
+    let divPai = document.querySelector('.container-vitoria')
+        divPai.classList.remove('hidden')
+    const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
 }
 const vitoriaJogador2 = () => {
@@ -247,6 +260,8 @@ const vitoriaJogador2 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
+    let divPai = document.querySelector('.container-vitoria')
+        divPai.classList.remove('hidden')
     const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
