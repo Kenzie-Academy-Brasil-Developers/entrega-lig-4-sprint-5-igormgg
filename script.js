@@ -153,6 +153,14 @@ const testaEmpate = (evt) =>{
 }
 const empateJogadores =() =>{
     console.log("empate")
+    audio[0].pause()
+    audio[3].play()
+    audio[3].volume = 0.1;
+    audio[3].currentTime = 2
+    setTimeout(() => {
+        audio[3].volume = 0.4;
+    }, 1700);
+
 }
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
