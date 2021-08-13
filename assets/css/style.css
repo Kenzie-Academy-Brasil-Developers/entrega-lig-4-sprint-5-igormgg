@@ -194,13 +194,23 @@ main {
 }
 .vitoria {
     margin: 0 auto;
-    width: 80vw;
+    width: 90vw;
     height: 60%;
     border-radius: 5px;
     /* background-color: rgba(0, 0, 0, 0.8); */
     padding: 10px;
     margin-top: 150px;
     color: var(--backgWhite);
+}
+.title-vitoria{
+    font-size: 2rem;
+    position: absolute;
+    top: 200px;
+    background-color: rgba(0,0,0,0.9);
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+
 }
 .vitoriaGoku{
     width: 260px;
@@ -229,10 +239,15 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     position:absolute;
-    right: -25px;
-    bottom: -330px;
+    right: -46px;
+    bottom: -375px;
 
 }
+.title-fala{
+    font-size: 1.3rem;
+color: orange;
+}
+
 .container-vitoria{
     position: absolute;
     top: 0px;
