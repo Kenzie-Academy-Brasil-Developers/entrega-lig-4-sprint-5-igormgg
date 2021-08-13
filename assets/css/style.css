@@ -5,10 +5,11 @@
     --img-yellow-ball: url(../img/yellow-ball.png);
     --img-blue-ball: url(../img/blue-ball.png);
     --img-botao-radar: url(../img/botao-radar.png);
-
+    --font-dbz: 'dbz';
+   
     --color1: #140f07;
-    --cor-header: #1f2c4f;
-    --cor-footer: #5560aa;
+    --cor-header: #1f5c10e7;
+    --cor-footer: #1f5c10e7;
     --cor-main: #9e9cf9;
     --color2: #ffe6f4;
 
@@ -26,13 +27,17 @@
     --green: #1f5c10;
     --platinum: #e7e5e8;
     --black: #000000;
-}
+    --red: #ff0000;
 
+}
+@font-face {
+    font-family: 'dbz';
+    src: url("../font/Saiyan-Sans.ttf");
+}
 html {
     width: 100vw;
     height: 100vh;
 }
-
 button{
     appearance: none;
         -webkit-writing-mode: none;
@@ -66,6 +71,7 @@ body {
     background-image: var(--bg-img-mobile);
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: url('../cursor/InicioCursor.cur'), auto;
 }
 
 /* HEADER */
@@ -81,8 +87,15 @@ header {
 
 header h1 {
     line-height: 6vh;
-    font-size: 2rem;
-    color: var(--cor-main);
+    font-size: 2.5rem;
+    color: var(--yellow);
+    font-family: var(--font-dbz);
+}
+header .orange{
+    color:var(--orange)
+}
+header .red{
+    color:var(--red)
 }
 
 /* HEADER */
@@ -101,13 +114,17 @@ main {
     justify-content: center;
 }
 
-#botao-radar {
+#reset {
+    margin-top: 20px;
     width: 65.5px;
     height: 50px;
     background-image: var(--img-botao-radar);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    color: black;
+    text-transform: uppercase;
+    font-family: var(--font-dbz);
 }
 
 #containerTabela {
@@ -116,13 +133,20 @@ main {
     max-height: 192.64px;
     max-width: 224px;
     position: relative;
+    background-image: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%), url(../img/map-teste.jpg);
+    background-position: 50% 60%;
+    border-radius: 25px;
+
 }
 
 #tabela {
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: var(--cor-tabela);
+    backdrop-filter: blur(0px) saturate(200%);
+    -webkit-backdrop-filter: blur(0px) saturate(200%);
+    background-color: rgba(42, 78, 8, 0.78);
+    /* background-color: var(--cor-tabela); */
     border: 20px solid var(--cor-borda-tabela);
     border-radius: 20px;
 }
@@ -132,6 +156,11 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+.colunas:hover {
+    background-color: #88ff3869;
+    cursor: url('../cursor/cursor.cur'), auto;
+
 }
 
 .celulas {
@@ -177,26 +206,29 @@ main {
     border-bottom: none;
 }
 
-#reset{
-    margin-top: 20px;
-    display: none;
-}
-.container-vitoria{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-}
 .vitoria {
     margin: 0 auto;
-    width: 80vw;
+    width: 90vw;
     height: 60%;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
     padding: 10px;
     margin-top: 150px;
     color: var(--backgWhite);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-vitoria{
+    font-size: 2rem;
+    position: absolute;
+    background-color: rgba(0,0,0,0.9);
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    transform: translateY(-70px);
+    border-radius: 12px;
+
 }
 .vitoriaGoku{
     width: 260px;
@@ -216,8 +248,29 @@ main {
     background-repeat: no-repeat;
     position:absolute;
     right: -45px;
-    bottom: -330px;
+    bottom: -373px;
 }
+.empate{
+    width: 300px;
+    height: 600px;
+    background-image: url(../img/empate.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -46px;
+    bottom: -375px;
+}
+.title-fala{
+    font-size: 1.3rem;
+color: orange;
+}
+.container-vitoria{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}   
 
 .hidden {
     display: none;
@@ -245,7 +298,7 @@ main {
     animation-iteration-count: 3;
 }
 .fade{
-    animation: fade 1.4s ease-in-out;
+    animation: fade 1s ease-in-out;
 }
 .fadeIn{
     animation: fadeIn 0.5s ease-in-out;
@@ -283,7 +336,6 @@ img.button__iniciar{
     width: 75vw;
     max-width: 220px;
     height: auto;
-    
 }
 .nuvemChegada{
     animation: NuvemChegada  1.5s ;
@@ -312,13 +364,15 @@ img.button__iniciar{
     color: var(--colorFontWhite);
 }
 .texto-vitoria{
-        font-size: 1.2rem;
+    font-size: 1.2rem;
     margin-top: 83px;
-    background-color: #fff;
-    color: #000;
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
     padding: 30px;
-    border-radius: 150px 150px 0px 150px;
+    border-radius: 50px 50px 0px 50px;
 }
+
+
 .regras__lista{
     padding: 5px;
 }
@@ -334,20 +388,62 @@ img.button__iniciar{
     padding: 0px 10px 0px 10px;
 }
 
+.btn__jogar{
+    cursor: url('../cursor/cursorZinicio.cur'), auto;
+}
+
+#joga1{
+    display:none;
+    position: absolute;
+    color:orangered;
+    top: 23%;
+    left: 26%;
+    z-index: 1;
+    height: 50px;
+    width: 20%;
+}
+#joga2{
+    display:block;
+    position: absolute;
+    color:#1f2c4f;
+    top: 23%;
+    right:26%;
+    z-index: 1;
+    height: 50px;
+    width: 20%;
+}
 /* MAIN */
 
 /* FOOTER */
 
 footer {
+    font-family: 'dbz';
     width: 100%;
     height: 6%;
     background-color: var(--cor-footer);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    color: var(--cor-main);
+    font-size: 1.25rem;
+
 }
+footer a{
+    cursor: url('../cursor/kuririn.cur'), auto;
+
+}
+footer .amarelo{
+    color: var(--yellow);
+}
+footer .laranja{
+    color: var(--orange);
+}
+footer .vermelho{
+    color: var(--red);
+}
+footer .fa-linkedin-square{
+    font-size: 10px;
+}
+
 
 /* FOOTER */
 
@@ -383,10 +479,8 @@ footer {
 }
 /* MEDIAS MIN */
 
-
-
 @media screen and (min-width:321px) and (max-width:539px){
-    #botao-radar {
+    #reset {
         width: 85.15px;
         height: 65px;
     }
@@ -395,10 +489,42 @@ footer {
         max-width: 288px;
         max-height: 247.68px;
     }
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 23%;
+        left: 26%;
+        z-index: 1;
+        height: 50px;
+        width: 20%;
+    
+    }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 35%;
+        right:30%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+    }
+    #textoDoturno{
+        color:#e76a24;    
+        position: absolute;
+        top: 24%;
+    font-size: 15px;}
+    footer {
+        font-size: 1.4rem;
+    }
+    footer .fa-linkedin-square{
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width:540px) and (max-width:720px){
-    #botao-radar {
+    #reset {
         width: 85.15px;
         height: 65px;
     }
@@ -407,10 +533,68 @@ footer {
         max-width: 432px;
         max-height: 371.5px;
     }
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 26%;
+        left: 26%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+      }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 26%;
+        right:26%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+        
+    }
+   
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 23%;
+font-size: 15px;}
+footer {
+    font-size: 2rem;
 }
+footer .fa-linkedin-square{
+    font-size: 16px;
+}
+}
+    
+
 
 @media screen and (min-width:721px) and (max-width:999px){
-    #botao-radar {
+
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 20%;
+        left: 26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+    
+    }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 20%;
+        right:26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+    }
+
+    #reset {
         width: 131px;
         height: 100px;
     }
@@ -423,14 +607,19 @@ footer {
     #tabela {
         border: 30px solid var(--cor-borda-tabela);
     }
+    footer {
+        font-size: 2rem;
+    }
+    footer .fa-linkedin-square{
+        font-size: 16px;
+    }
 }
 
 @media screen and (min-width:1000px) and (max-width:1024px){
-    #botao-radar {
+    #reset {
         width: 131px;
         height: 100px;
     }
-    
 
     #containerTabela {
         max-width: 700px;
@@ -445,9 +634,60 @@ footer {
         background-image: var(--bg-img-fullsize-home);
         background-position: center;
     }
+
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 20%;
+        left: 26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+      }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 20%;
+        right:26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+  }
+    
+    top: 30%;
+    left: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 30%;
+    right: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 20%;}
+    footer {
+        font-size: 2rem;
+    }
+    footer .fa-linkedin-square{
+        font-size: 16px;
 }
 
 @media screen and (min-width:1025px){
+    :root{
+        --cor-header: #63525f87;
+        --cor-footer: #63525f87;
+    }
     body {
         background-image: var(--bg-img-desktop);
         background-repeat: no-repeat;
@@ -459,10 +699,17 @@ footer {
     main {
         width: 50%;
     }
+    
 
-    #botao-radar {
+    #reset {
         width: 157px;
         height: 120px;
+    }
+
+    #reset:hover {
+        width: 150px;
+        height: 114.6px;
+        cursor: pointer;
     }
 
     #containerTabela {
@@ -477,6 +724,9 @@ footer {
     footer {
         font-size: 2rem;
     }
+    footer .fa-linkedin-square{
+        font-size: 16px;
+    }
     #conteudo__regras{
         background: #f95801;
 
@@ -485,6 +735,8 @@ footer {
         background-position: center;
         background-size: contain;
     }
+
+
 }
 
 /* MEDIA */
@@ -524,19 +776,18 @@ footer {
 }
 @keyframes NuvemChegada {
     from{
-        transform: translate3d(-1000px, -140px, -400px);
+        transform: translate3d(-300px, -140px, -400px);
     }
     to{
         transform: translate3d(0px,0px, 0px);
     }
     
 }
-
 @keyframes NuvemPartiu {
-    0%{
-        transform: translate3d(0px, -10px, 0px);
+    from{
+        transform: translate3d(0px,0px, 0px);
     }
-    100%{
+    to{
         transform: translate3d(400px, -200px, -400px);
         
     }
@@ -560,4 +811,5 @@ footer {
         transform: translateY(0px);
     }
 }
+
 /* ANIMATIONS */
