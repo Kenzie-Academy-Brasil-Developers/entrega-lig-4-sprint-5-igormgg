@@ -1,18 +1,19 @@
 //VARIAVEIS GLOBAIS
-const tabela = document.querySelector('#tabela')
-const btnReset = document.querySelector('#reset')
-const audio = document.querySelectorAll('audio')
+const tabela = document.querySelector('#tabela');
+const btnReset = document.querySelector('#reset');
+const audio = document.querySelectorAll('audio');
 let player = 1;
+//let testeEmpate=0;
 let textoTurno =document.createElement('p');
 textoTurno.id ='textoDoturno';
-document.body.appendChild(textoTurno)
-const play1 =document.createElement('img')
-play1.setAttribute('src','../assets/img/player-goku.png')
-play1.id ='joga1'
+document.body.appendChild(textoTurno);
+const play1 =document.createElement('img');
+play1.setAttribute('src','../assets/img/player-goku.png');
+play1.id ='joga1';
 document.body.appendChild(play1);
-const play2 =document.createElement('img')
-play2.setAttribute('src','../assets/img/player-vegeta.png')
-play2.id ='joga2'
+const play2 =document.createElement('img');
+play2.setAttribute('src','../assets/img/player-vegeta.png');
+play2.id ='joga2';
 document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
@@ -158,10 +159,11 @@ const testaEmpate = (evt) =>{
          }else if(teste.firstChild!==null){  
             contador++
         }
-        if(contador===42){
+
+    } 
+    if(contador===42){
             empateJogadores()
         }
-    }
 }
 }
 const empateJogadores =() =>{
