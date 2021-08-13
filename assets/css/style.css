@@ -5,7 +5,7 @@
     --img-yellow-ball: url(../img/yellow-ball.png);
     --img-blue-ball: url(../img/blue-ball.png);
     --img-botao-radar: url(../img/botao-radar.png);
-
+   
     --color1: #140f07;
     --cor-header: #1f2c4f;
     --cor-footer: #5560aa;
@@ -271,9 +271,7 @@ img.button__iniciar{
     font-weight: bold;
     color: var(--colorFontWhite);
 }
-.regras__conteudo{
 
-}
 .regras__lista{
     padding: 5px;
 }
@@ -481,4 +479,28 @@ footer {
         transform: translateY(0px);
     }
 }
+#joga1{
+    display:none;
+    position: absolute;
+    
+    top: 30%;
+    left: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+
+}
+#joga2{
+    display:none;
+    position: absolute;
+    top: 30%;
+    right: 7% ;
+    z-index: 1;
+    height: 150px;
+    width: 100px;
+}
+#textoDoturno{
+    color:#e76a24;    
+    position: absolute;
+    top: 20%;}
 /* ANIMATIONS */
