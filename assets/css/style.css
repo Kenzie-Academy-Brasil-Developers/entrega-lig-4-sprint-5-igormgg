@@ -5,9 +5,11 @@
     --img-yellow-ball: url(../img/yellow-ball.png);
     --img-blue-ball: url(../img/blue-ball.png);
     --img-botao-radar: url(../img/botao-radar.png);
+    --font-dbz: 'dbz';
+   
     --color1: #140f07;
-    --cor-header: #1f2c4f;
-    --cor-footer: #5560aa;
+    --cor-header: #1f5c10e7;
+    --cor-footer: #1f5c10e7;
     --cor-main: #9e9cf9;
     --color2: #ffe6f4;
 
@@ -25,8 +27,13 @@
     --green: #1f5c10;
     --platinum: #e7e5e8;
     --black: #000000;
-}
+    --red: #ff0000;
 
+}
+@font-face {
+    font-family: 'dbz';
+    src: url("../font/Saiyan-Sans.ttf");
+}
 html {
     width: 100vw;
     height: 100vh;
@@ -65,6 +72,7 @@ body {
     background-image: var(--bg-img-mobile);
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: url('../cursor/InicioCursor.cur'), auto;
 }
 
 /* HEADER */
@@ -80,8 +88,15 @@ header {
 
 header h1 {
     line-height: 6vh;
-    font-size: 2rem;
-    color: var(--cor-main);
+    font-size: 2.5rem;
+    color: var(--yellow);
+    font-family: var(--font-dbz);
+}
+header .orange{
+    color:var(--orange)
+}
+header .red{
+    color:var(--red)
 }
 
 /* HEADER */
@@ -100,13 +115,17 @@ main {
     justify-content: center;
 }
 
-#botao-radar {
+#reset {
+    margin-top: 20px;
     width: 65.5px;
     height: 50px;
     background-image: var(--img-botao-radar);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    color: black;
+    text-transform: uppercase;
+    font-family: var(--font-dbz);
 }
 
 #containerTabela {
@@ -115,13 +134,20 @@ main {
     max-height: 192.64px;
     max-width: 224px;
     position: relative;
+    background-image: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%), url(../img/map-teste.jpg);
+    background-position: 50% 60%;
+    border-radius: 25px;
+
 }
 
 #tabela {
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: var(--cor-tabela);
+    backdrop-filter: blur(0px) saturate(200%);
+    -webkit-backdrop-filter: blur(0px) saturate(200%);
+    background-color: rgba(42, 78, 8, 0.78);
+    /* background-color: var(--cor-tabela); */
     border: 20px solid var(--cor-borda-tabela);
     border-radius: 20px;
 }
@@ -131,6 +157,11 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+.colunas:hover {
+    background-color: #88ff3869;
+    cursor: url('../cursor/cursor.cur'), auto;
+
 }
 
 .celulas {
@@ -176,12 +207,46 @@ main {
     border-bottom: none;
 }
 
-#reset{
-    margin-top: 20px;
-    display: none;
-}
 .vitoria {
-    margin-top: 4%;
+    margin: 0 auto;
+    width: 80vw;
+    height: 60%;
+    border-radius: 5px;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    padding: 10px;
+    margin-top: 150px;
+    color: var(--backgWhite);
+}
+.vitoriaGoku{
+    width: 260px;
+    height: 600px;
+    background-image: url(../img/goku-acenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -10px;
+    bottom: -360px;
+}
+.vitoriaVedita{
+    width: 250px;
+    height: 600px;
+    background-image: url(../img/vegetaacenando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -45px;
+    bottom: -330px;
+}
+.empate{
+    width: 300px;
+    height: 600px;
+    background-image: url(../img/empate.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: -25px;
+    bottom: -330px;
+
 }
 
 .hidden {
@@ -270,6 +335,19 @@ img.button__iniciar{
     font-weight: bold;
     color: var(--colorFontWhite);
 }
+.regras__subtitle{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--colorFontWhite);
+}
+.texto-vitoria{
+    font-size: 1.2rem;
+    margin-top: 83px;
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    padding: 30px;
+    border-radius: 50px 50px 0px 50px;
+}
 
 .regras__lista{
     padding: 5px;
@@ -285,6 +363,11 @@ img.button__iniciar{
 .btn{
     padding: 0px 10px 0px 10px;
 }
+
+.btn__jogar{
+    cursor: url('../cursor/cursorZinicio.cur'), auto;
+}
+
 #joga1{
     display:none;
     position: absolute;
@@ -294,7 +377,6 @@ img.button__iniciar{
     z-index: 1;
     height: 50px;
     width: 20%;
-
 }
 #joga2{
     display:block;
@@ -326,7 +408,7 @@ footer {
 /* MEDIA */
 
 @media screen and (min-width:321px) and (max-width:539px){
-    #botao-radar {
+    #reset {
         width: 85.15px;
         height: 65px;
     }
@@ -359,7 +441,7 @@ footer {
 }
 
 @media screen and (min-width:540px) and (max-width:720px){
-    #botao-radar {
+    #reset {
         width: 85.15px;
         height: 65px;
     }
@@ -418,7 +500,7 @@ footer {
         width: 20%;
     }
 
-    #botao-radar {
+    #reset {
         width: 131px;
         height: 100px;
     }
@@ -434,7 +516,7 @@ footer {
 }
 
 @media screen and (min-width:1000px) and (max-width:1024px){
-    #botao-radar {
+    #reset {
         width: 131px;
         height: 100px;
     }
@@ -477,6 +559,10 @@ footer {
 }
 
 @media screen and (min-width:1025px){
+    :root{
+        --cor-header: #63525f87;
+        --cor-footer: #63525f87;
+    }
     body {
         background-image: var(--bg-img-desktop);
         background-repeat: no-repeat;
@@ -488,10 +574,17 @@ footer {
     main {
         width: 50%;
     }
+    
 
-    #botao-radar {
+    #reset {
         width: 157px;
         height: 120px;
+    }
+
+    #reset:hover {
+        width: 150px;
+        height: 114.6px;
+        cursor: pointer;
     }
 
     #containerTabela {
