@@ -216,15 +216,19 @@ main {
     padding: 10px;
     margin-top: 150px;
     color: var(--backgWhite);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .title-vitoria{
     font-size: 2rem;
     position: absolute;
-    top: 200px;
     background-color: rgba(0,0,0,0.9);
     padding: 10px;
     text-align: center;
     box-sizing: border-box;
+    transform: translateY(-70px);
+    border-radius: 12px;
 
 }
 .vitoriaGoku{
@@ -245,7 +249,7 @@ main {
     background-repeat: no-repeat;
     position:absolute;
     right: -45px;
-    bottom: -330px;
+    bottom: -373px;
 }
 .empate{
     width: 300px;
@@ -442,9 +446,7 @@ footer {
         width: 80vw;
         margin-top: 100px;
     }
-    .title-vitoria{
-        top: 150px;
-    }
+   
     .vitoriaVedita{
         width: 310px;
         bottom: -regras300px;
