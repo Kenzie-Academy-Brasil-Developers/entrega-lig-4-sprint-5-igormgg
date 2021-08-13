@@ -42,13 +42,11 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
                 ultimoJogador = 2;
             }
         if(countOne == 4){
-            console.log('vitoriaJogador1')
-            // return vitoriaJogador1();
-            // return true;
+            vitoriaJogador1();
+            return true;
         }else if(countTwo == 4){
-            console.log('vitoriaJogador2')
-            // return vitoriaJogador2();
-            // return true
+             vitoriaJogador2();
+            return true
         }
     }
 }
@@ -156,7 +154,7 @@ let contador =0;
             }
         }
         if(contador===42){
-            empate();       
+            empateJogadores();       
         }
     }
 }
@@ -170,6 +168,11 @@ const empateJogadores =() =>{
     setTimeout(() => {
         audio[3].volume = 0.4;
     }, 1700);
+        let divPai = document.querySelector('.container-vitoria');
+            divPai.classList.remove('hidden');
+        let divEmpate = document.querySelector('#empate');
+            divEmpate.classList.remove('hidden');
+
 }
 
 //buscar elemento linha
@@ -195,10 +198,10 @@ const buscarElementlinha = (evt) =>{
                 contadorJogador1=0;
             }
             if(contadorJogador1===4){
-                console.log("jogador1 ganhou")
+                vitoriaJogador1()
                 return true
             }else if(contadorJogador2===4){
-                console.log("jogador2 ganhou")
+                vitoriaJogador2()
                 return true
             }
             }
@@ -238,11 +241,11 @@ let contador2=0;
         contador1=0;                       
     }
     if(contador1===4){
-        console.log("jogador1 venceu!")
+        vitoriaJogador1()
         return true
     }else
     if(contador2===4){
-        console.log("jogador2 venceu")
+        vitoriaJogador2()
         return true
     }
 }
@@ -274,12 +277,7 @@ const vitoriaJogador2 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador2');
     divVitoria.classList.remove('hidden');
 }
-const empate = () =>{
-    let divPai = document.querySelector('.container-vitoria');
-        divPai.classList.remove('hidden');
-    let divEmpate = document.querySelector('#empate');
-        divEmpate.classList.remove('hidden');
-}
+
 const colunaCheia = () =>{
     let busca = document.getElementById('tabela');
         navigator.vibrate(200);
@@ -331,7 +329,6 @@ const colocarDisco = (evt) =>{
     if(vitoria == undefined ){
         vitoria = testaEmpate();
     }
-    console.log(vitoria)
     turnoJogador();
 }
 const bemVindo = () =>{
