@@ -22,7 +22,6 @@
 
     <main>
         <button id="reset">Resetar radar</button>
-        <!-- <div id="botao-radar"></div> -->
         <section id='containerTabela'>
             <div id='tabela'>
                 
@@ -32,16 +31,16 @@
         
         <div class="container-vitoria hidden ">
             <div class="hidden vitoria" id="vitoriaJogador1">
-                <p class="texto-vitoria">Oi Eu sou o Goku e você me ajudou a encontrar as esferas do dragão! Justos vamos salvar a terra!</p>
+                <p class="texto-vitoria"><span class="title-vitoria">Jogador 1</span><span class="title-fala">Goku: </span>Oi Eu sou o Goku e você me ajudou a encontrar as esferas do dragão! Justos vamos salvar a terra!</p>
                 <div class="vitoriaGoku"></div>
             </div>
             <div class="hidden vitoria" id="vitoriaJogador2">
-                <p class="texto-vitoria">Eu sou o Principe dos Sayajins, o mais forte do universo juntei as esferas do dragão! Vou salvar a terra e todos vão saber o Kakarotto é um verme inútil. </p>
+                <p class="texto-vitoria"><span class="title-vitoria">Jogador 2</span><span class="title-fala">Vedita: </span>Eu sou o Principe dos Sayajins, o mais forte do universo juntei as esferas do dragão! Vou salvar a terra e todos vão saber o Kakarotto é um verme inútil. </p>
                 <div class="vitoriaVedita"></div>
             </div>
             <div class="hidden vitoria" id="empate">
-                <h2>Empate</h2>
-                <p class="texto-vitoria">Goku : Não conseguimos as esferas do dragão, agora teremos que lutar contra o inimico nós mesmos! Vamos fazer a fusão e salvar a terra, ne Vedita?<br> Vedita: Cala a boca seu verme imundo, vamos fazer logo essa fusão idiota e acabar com isso! </p>
+                
+                <p class="texto-vitoria"><span class="title-vitoria">Empate</span><span class="title-fala">Goku: </span>  Não conseguimos as esferas do dragão, agora teremos que lutar contra o inimico sem ajuda do Shenlong! Vamos fazer a fusão e salvar a terra, ne Vedita?<br> <span class="title-fala">Vedita: </span> Cala a boca seu verme imundo, vamos fazer logo essa fusão idiota e acabar com isso! </p>
                 <div class="empate"></div>
             </div>
         </div>
@@ -61,16 +60,13 @@
                 <button class="btn btn__jogar"><img class="button__iniciar nuvemChegada" src="./assets/img/button-iniciar-pronto.png" alt=""></button>
             </div>
         </div>
+        <div id="joga1"><h1>Turno: P. um</h1></div>
+        <div id="joga2"><h1>Turno: P. dois</h1></div>
         <audio id="gameSound"><source src="assets/sounds/dbz.mp3" type="audio/mpeg"> </audio>
         <audio id="vitoriaGenio"><source src="assets/sounds/vegeta-genio.mp3" type="audio/mpeg"> </audio>
         <audio id="vitoria"><source src="assets/sounds/vitoria-sound.mp3" type="audio/mpeg"> </audio>
         <audio id="empate"><source src="assets/sounds/sad-dbz.mp3" type="audio/mpeg"> </audio>
 
-
-
-        
-           
-       
     </main>
     <footer>
             <h1>

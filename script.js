@@ -2,63 +2,22 @@
 const tabela = document.querySelector('#tabela');
 const btnReset = document.querySelector('#reset');
 const audio = document.querySelectorAll('audio');
+const play1 = document.querySelector('#joga1');
+const play2 = document.querySelector('#joga2');
 let player = 1;
-//let testeEmpate=0;
-let textoTurno =document.createElement('p');
-textoTurno.id ='textoDoturno';
-document.body.appendChild(textoTurno);
-const play1 =document.createElement('img');
-// play1.setAttribute('src','../assets/img/player-goku.png');
-play1.id ='joga1';
-document.body.appendChild(play1);
-const play2 =document.createElement('img');
-// play2.setAttribute('src','../assets/img/player-vegeta.png');
-play2.id ='joga2';
-document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
-
-
 //FUNÇÕES
-const turnoJogador =() =>{
+const turnoJogador = () =>{
     if( play2.style.display==='block'){
-       
     play1.style.display='block'
     play2.style.display='none';
-   
-    textoTurno.innerHTML =("Turno do jogador um")
-     document.getElementById ('textoDoturno').style.color = '#e76a24'; 
-}else{
+    }
+    else {
     play1.style.display='none'
     play2.style.display='block'
-    textoTurno.innerHTML =("Turno do jogador dois")
-    document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
+    }
 }
-}
-// const checaVencedorDiagonais = (arrDiagonal) =>{
-//     let vencedor = 0;
-//     let countOne = 0;
-//     let countTwo = 0;
-//     for(let i=0; i<arrDiagonal.length;i++){
-//         if(arrDiagonal[i] == 1){
-//             countTwo= 0;
-//             countOne++;
-//         } else if(arrDiagonal[i] == 2){
-//             countOne = 0;
-//             countTwo++;
-//         }
-//         if(countOne == 4){
-//             console.log('vitoriaJogador1')
-//             // vitoriaJogador1();
-//             return true;
-//         }else if(countTwo == 4){
-//             console.log('vitoriaJogador2')
-//             // vitoriaJogador2();
-//             return true
-//         }
-//     }
-// }
-
 
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let countOne = 0;
@@ -83,13 +42,11 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
                 ultimoJogador = 2;
             }
         if(countOne == 4){
-            console.log('vitoriaJogador1')
-            // return vitoriaJogador1();
-            // return true;
+            vitoriaJogador1();
+            return true;
         }else if(countTwo == 4){
-            console.log('vitoriaJogador2')
-            // return vitoriaJogador2();
-            // return true
+             vitoriaJogador2();
+            return true
         }
     }
 }
@@ -197,7 +154,7 @@ let contador =0;
             }
         }
         if(contador===42){
-            empate();       
+            empateJogadores();       
         }
     }
 }
@@ -211,6 +168,11 @@ const empateJogadores =() =>{
     setTimeout(() => {
         audio[3].volume = 0.4;
     }, 1700);
+        let divPai = document.querySelector('.container-vitoria');
+            divPai.classList.remove('hidden');
+        let divEmpate = document.querySelector('#empate');
+            divEmpate.classList.remove('hidden');
+
 }
 
 //buscar elemento linha
@@ -236,10 +198,10 @@ const buscarElementlinha = (evt) =>{
                 contadorJogador1=0;
             }
             if(contadorJogador1===4){
-                console.log("jogador1 ganhou")
+                vitoriaJogador1()
                 return true
             }else if(contadorJogador2===4){
-                console.log("jogador2 ganhou")
+                vitoriaJogador2()
                 return true
             }
             }
@@ -279,11 +241,11 @@ let contador2=0;
         contador1=0;                       
     }
     if(contador1===4){
-        console.log("jogador1 venceu!")
+        vitoriaJogador1()
         return true
     }else
     if(contador2===4){
-        console.log("jogador2 venceu")
+        vitoriaJogador2()
         return true
     }
 }
@@ -297,7 +259,9 @@ const vitoriaJogador1 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
-    const divVitoria = document.querySelector('#vitoriaJogador2')
+    let divPai = document.querySelector('.container-vitoria');
+    divPai.classList.remove('hidden');
+    const divVitoria = document.querySelector('#vitoriaJogador1')
     divVitoria.classList.remove('hidden')
 }
 const vitoriaJogador2 = () => {
@@ -313,12 +277,7 @@ const vitoriaJogador2 = () => {
     const divVitoria = document.querySelector('#vitoriaJogador2');
     divVitoria.classList.remove('hidden');
 }
-const empate = () =>{
-    let divPai = document.querySelector('.container-vitoria');
-        divPai.classList.remove('hidden');
-    let divEmpate = document.querySelector('#empate');
-        divEmpate.classList.remove('hidden');
-}
+
 const colunaCheia = () =>{
     let busca = document.getElementById('tabela');
         navigator.vibrate(200);
@@ -351,8 +310,6 @@ const colocarDisco = (evt) =>{
             i=arr.length;
         }        
        }
-      
-      
            status = criarDisco(destino,player);
       
     if(status == true){
@@ -372,7 +329,6 @@ const colocarDisco = (evt) =>{
     if(vitoria == undefined ){
         vitoria = testaEmpate();
     }
-    console.log(vitoria)
     turnoJogador();
 }
 const bemVindo = () =>{
@@ -391,7 +347,6 @@ const bemVindo = () =>{
                 busca.classList.add('hidden');
                 buscaBody.classList.add('fadeIn');  
             play1.style.display='block'
-            textoTurno.innerHTML= "Turno do jogador um" 
             },1000);
         } );
 
