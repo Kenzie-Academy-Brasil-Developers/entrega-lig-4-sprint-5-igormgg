@@ -35,29 +35,65 @@ const turnoJogador =() =>{
     document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
 }
 }
+// const checaVencedorDiagonais = (arrDiagonal) =>{
+//     let vencedor = 0;
+//     let countOne = 0;
+//     let countTwo = 0;
+//     for(let i=0; i<arrDiagonal.length;i++){
+//         if(arrDiagonal[i] == 1){
+//             countTwo= 0;
+//             countOne++;
+//         } else if(arrDiagonal[i] == 2){
+//             countOne = 0;
+//             countTwo++;
+//         }
+//         if(countOne == 4){
+//             console.log('vitoriaJogador1')
+//             // vitoriaJogador1();
+//             return true;
+//         }else if(countTwo == 4){
+//             console.log('vitoriaJogador2')
+//             // vitoriaJogador2();
+//             return true
+//         }
+//     }
+// }
+
+
 const checaVencedorDiagonais = (arrDiagonal) =>{
-    let vencedor = 0;
     let countOne = 0;
     let countTwo = 0;
+    let ultimoJogador = 0;
     for(let i=0; i<arrDiagonal.length;i++){
-        if(arrDiagonal[i] == 1){
-            countTwo= 0;
-            countOne++;
-        } else if(arrDiagonal[i] == 2){
-            countOne = 0;
-            countTwo++;
-        }
+            if(arrDiagonal[i] == 0){
+                if(ultimoJogador == 1){
+                    countOne=0;
+                } else if(ultimoJogador == 2){
+                    countTwo=0;
+                }
+            }
+            if(arrDiagonal[i] == 1){
+                countTwo= 0;
+                countOne++;
+                ultimoJogador = 1;
+            }
+             if(arrDiagonal[i] == 2){
+                countOne = 0;
+                countTwo++;
+                ultimoJogador = 2;
+            }
         if(countOne == 4){
             console.log('vitoriaJogador1')
-            // vitoriaJogador1();
-            return true;
+            // return vitoriaJogador1();
+            // return true;
         }else if(countTwo == 4){
             console.log('vitoriaJogador2')
-            // vitoriaJogador2();
-            return true
+            // return vitoriaJogador2();
+            // return true
         }
     }
 }
+
 const codigoJogador = (jogador) =>{
     if(jogador == 'jogador1'){
         return 1;
