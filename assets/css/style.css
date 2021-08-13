@@ -102,13 +102,17 @@ main {
     justify-content: center;
 }
 
-#botao-radar {
+#reset {
+    margin-top: 20px;
     width: 65.5px;
     height: 50px;
     background-image: var(--img-botao-radar);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    color: black;
+    text-transform: uppercase;
+    font-family: var(--font-dbz);
 }
 
 #containerTabela {
@@ -190,10 +194,6 @@ main {
     border-bottom: none;
 }
 
-#reset{
-    margin-top: 20px;
-    display: none;
-}
 .vitoria {
     margin: 0 auto;
     width: 80vw;
@@ -374,7 +374,7 @@ footer {
 /* MEDIA */
 
 @media screen and (min-width:321px) and (max-width:539px){
-    #botao-radar {
+    #reset {
         width: 85.15px;
         height: 65px;
     }
@@ -410,7 +410,7 @@ footer {
 }
 
 @media screen and (min-width:540px) and (max-width:720px){
-    #botao-radar {
+    #reset {
         width: 85.15px;
         height: 65px;
     }
@@ -476,7 +476,7 @@ font-size: 15px;}
     top: 21%;
 font-size: 15px;}
 
-    #botao-radar {
+    #reset {
         width: 131px;
         height: 100px;
     }
@@ -492,7 +492,7 @@ font-size: 15px;}
 }
 
 @media screen and (min-width:1000px) and (max-width:1024px){
-    #botao-radar {
+    #reset {
         width: 131px;
         height: 100px;
     }
@@ -555,9 +555,15 @@ font-size: 15px;}
     }
     
 
-    #botao-radar {
+    #reset {
         width: 157px;
         height: 120px;
+    }
+
+    #reset:hover {
+        width: 150px;
+        height: 114.6px;
+        cursor: pointer;
     }
 
     #containerTabela {
