@@ -255,7 +255,7 @@ let contador2=0;
 
 const vitoriaJogador1 = () => {
     audio[0].pause()
-    audio[1].play()
+    audio[4].play()
     audio[2].play()
     audio[2].volume = 0.1;
     setTimeout(() => {
@@ -382,6 +382,8 @@ const criacaoTabela = () =>{
     jogarNov3.addEventListener('click',reset)
 }
 const reset = () => {
+    audio[0].play()
+    audio[2].pause()
     const resetAll = document.querySelectorAll('.disco');
     player = 1;
     resetAll.forEach(element => {
