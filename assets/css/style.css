@@ -363,10 +363,31 @@ img.button__iniciar{
 .btn{
     padding: 0px 10px 0px 10px;
 }
+
 .btn__jogar{
     cursor: url('../cursor/cursorZinicio.cur'), auto;
 }
 
+#joga1{
+    display:none;
+    position: absolute;
+    color:orangered;
+    top: 23%;
+    left: 26%;
+    z-index: 1;
+    height: 50px;
+    width: 20%;
+}
+#joga2{
+    display:block;
+    position: absolute;
+    color:#1f2c4f;
+    top: 23%;
+    right:26%;
+    z-index: 1;
+    height: 50px;
+    width: 20%;
+}
 /* MAIN */
 
 /* FOOTER */
@@ -413,25 +434,27 @@ footer .fa-linkedin-square{
     #containerTabela {
         max-width: 288px;
         max-height: 247.68px;
-    }#joga1{
+    }
+    #joga1{
         display:none;
         position: absolute;
-        
-        top: 20%;
-        left: 4% ;
+        color:orangered;
+        top: 23%;
+        left: 26%;
         z-index: 1;
         height: 50px;
-        width: 30px;
+        width: 20%;
     
     }
     #joga2{
-        display:none;
+        display:block;
         position: absolute;
-        top: 20%;
-        right: 4%;
+        color:#1f2c4f;
+        top: 35%;
+        right:30%;
         z-index: 1;
-        height: 50px;
-        width: 30px;
+        height: 10px;
+        width: 20%;
     }
     #textoDoturno{
         color:#e76a24;    
@@ -456,26 +479,28 @@ footer .fa-linkedin-square{
         max-width: 432px;
         max-height: 371.5px;
     }
-#joga1{
-    display:none;
-    position: absolute;
-    
-    top: 20%;
-    left: 4% ;
-    z-index: 1;
-    height: 50px;
-    width: 30px;
-
-}
-#joga2{
-    display:none;
-    position: absolute;
-    top: 20%;
-    right: 4%;
-    z-index: 1;
-    height: 50px;
-    width: 30px;
-}
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 26%;
+        left: 26%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+      }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 26%;
+        right:26%;
+        z-index: 1;
+        height: 10px;
+        width: 20%;
+        
+    }
+   
 #textoDoturno{
     color:#e76a24;    
     position: absolute;
@@ -493,31 +518,27 @@ footer .fa-linkedin-square{
 
 @media screen and (min-width:721px) and (max-width:999px){
 
-#joga1{
-    display:none;
-    position: absolute;
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 20%;
+        left: 26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
     
-    top: 20%;
-    left: 6% ;
-    z-index: 1;
-    height: 100px;
-    width: 50px;
-
-}
-#joga2{
-    display:none;
-    position: absolute;
-    top: 20%;
-    right: 6%;
-    z-index: 1;
-    height: 100px;
-    width: 50px;
-}
-#textoDoturno{
-    color:#e76a24;    
-    position: absolute;
-    top: 21%;
-font-size: 15px;}
+    }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 20%;
+        right:26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+    }
 
     #reset {
         width: 131px;
@@ -560,9 +581,26 @@ font-size: 15px;}
         background-position: center;
     }
 
-#joga1{
-    display:none;
-    position: absolute;
+    #joga1{
+        display:none;
+        position: absolute;
+        color:orangered;
+        top: 20%;
+        left: 26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+      }
+    #joga2{
+        display:block;
+        position: absolute;
+        color:#1f2c4f;
+        top: 20%;
+        right:26%;
+        z-index: 1;
+        height: 20px;
+        width: 20%;
+  }
     
     top: 30%;
     left: 7% ;
@@ -589,7 +627,6 @@ font-size: 15px;}
     }
     footer .fa-linkedin-square{
         font-size: 16px;
-    }
 }
 
 @media screen and (min-width:1025px){
@@ -644,30 +681,8 @@ font-size: 15px;}
         background-position: center;
         background-size: contain;
     }
-    #joga1{
-        display:none;
-        position: absolute;
-        
-        top: 30%;
-        left: 7% ;
-        z-index: 1;
-        height: 150px;
-        width: 100px;
-    
-    }
-    #joga2{
-        display:none;
-        position: absolute;
-        top: 30%;
-        right: 7% ;
-        z-index: 1;
-        height: 150px;
-        width: 100px;
-    }
-    #textoDoturno{
-        color:#e76a24;    
-        position: absolute;
-        top: 23%;}
+
+
 }
 
 /* MEDIA */
