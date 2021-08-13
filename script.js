@@ -49,11 +49,11 @@ const checaVencedorDiagonais = (arrDiagonal) =>{
             }
         if(countOne == 4){
             console.log('vitoriaJogador1')
-            vitoriaJogador1();
+            // vitoriaJogador1();
             return true;
         }else if(countTwo == 4){
             console.log('vitoriaJogador2')
-            vitoriaJogador2();
+            // vitoriaJogador2();
             return true
         }
     }
@@ -160,7 +160,7 @@ let contador =0;
             }
         }
         if(contador===42){
-            console.log('EMPATE')        
+            empate();       
         }
     }
 }
