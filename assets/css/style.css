@@ -51,7 +51,7 @@ button{
         display: inline-block;
         text-align: center;
         align-items: flex-start;
-        cursor: default;
+        cursor: url('../cursor/kuririn.cur'), auto;
         background-color: rgba(255, 255, 255, 0);
         box-sizing: border-box;
         margin: 0em;
@@ -677,12 +677,15 @@ footer .fa-linkedin-square{
         width: 157px;
         height: 120px;
         font-size: 30px;
+
     }
 
     #reset:hover {
         width: 150px;
         height: 114.6px;
-        cursor: pointer;
+       
+        
+
     }
 
     #containerTabela {
