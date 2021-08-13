@@ -22,7 +22,6 @@ if( play1.style.display==='block'){
 }
 }
 const checaVencedorDiagonais = (arrDiagonal) =>{
-    let vencedor = 0;
     let countOne = 0;
     let countTwo = 0;
     let ultimoJogador = 0;
@@ -112,7 +111,6 @@ const percorrerLinha = (mapa,linha) =>{
                     }
                 }    
             }
-            
             let resultado = '';
             for(let i=0;i<arrMult.length;i++){
                resultado = checaVencedorDiagonais(arrMult[i])
