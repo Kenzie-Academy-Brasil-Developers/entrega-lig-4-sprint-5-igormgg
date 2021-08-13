@@ -4,6 +4,9 @@ const btnReset = document.querySelector('#reset');
 const audio = document.querySelectorAll('audio');
 const play1 = document.querySelector('#joga1');
 const play2 = document.querySelector('#joga2');
+const jogarNov1 = document.querySelector('#jogar-nov1');
+const jogarNov2 = document.querySelector('#jogar-nov2');
+const jogarNov3 = document.querySelector('#jogar-nov3');
 let player = 1;
 
 //VARIAVEIS GLOBAIS
@@ -375,6 +378,9 @@ const criacaoTabela = () =>{
     }  
  
     btnReset.addEventListener('click',reset)
+    jogarNov1.addEventListener('click',reset)
+    jogarNov2.addEventListener('click',reset)
+    jogarNov3.addEventListener('click',reset)
 }
 const reset = () => {
     const resetAll = document.querySelectorAll('.disco');
@@ -384,6 +390,14 @@ const reset = () => {
     });
     play1.style.display ='block';
     play2.style.display ='none';
+    let divPai = document.querySelector('.container-vitoria');
+    divPai.classList.add('hidden');
+    let divEmpate = document.querySelector('#empate');
+    divEmpate.classList.add('hidden');
+    const divVitoria1 = document.querySelector('#vitoriaJogador2');
+    divVitoria1.classList.add('hidden');
+    const divVitoria2 = document.querySelector('#vitoriaJogador1')
+    divVitoria2.classList.add('hidden')
 }
 const alternarAnimacaoNuvem = () =>{
     let query = document.querySelector('.button__iniciar ');

@@ -254,7 +254,7 @@ main {
 }
 .title-fala{
     font-size: 1.3rem;
-color: orange;
+    color: orange;
 }
 .container-vitoria{
     position: absolute;
@@ -262,7 +262,14 @@ color: orange;
     right: 0px;
     bottom: 0px;
     left: 0px;
-}   
+}  
+
+.jogar-novamente {
+    font-size: 1.7rem;
+    background-color: rgba(56, 56, 56, 0.9);
+    color: white;
+    border-radius: 0px 0px 50px 50px;
+}
 
 .hidden {
     display: none;
@@ -372,7 +379,7 @@ img.button__iniciar{
     background-color: rgba(0,0,0,0.9);
     color: #fff;
     padding: 30px;
-    border-radius: 50px 50px 0px 50px;
+    border-radius: 50px 50px 0px 0px;
 }
 
 .btn{
@@ -614,6 +621,11 @@ footer .fa-linkedin-square{
 @media screen and (min-width:1025px){
     .vitoria{
         width: 70% ;
+    }
+
+    .jogar-novamente:hover {
+        color: var(--red);
+        background-color: var(--platinum);
     }
 
     .regras {
