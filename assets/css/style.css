@@ -116,7 +116,9 @@ main {
     max-height: 192.64px;
     max-width: 224px;
     position: relative;
-    background-image: url('../img/map-teste.jpg');
+    background-image: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%), url(../img/map-teste.jpg);
+    background-position: 50% 60%;
+    border-radius: 25px;
 
 }
 
