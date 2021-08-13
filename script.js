@@ -1,13 +1,19 @@
 //VARIAVEIS GLOBAIS
-const tabela = document.querySelector('#tabela')
-const btnReset = document.querySelector('#reset')
-const audio = document.querySelectorAll('audio')
+const tabela = document.querySelector('#tabela');
+const btnReset = document.querySelector('#reset');
+const audio = document.querySelectorAll('audio');
 let player = 1;
-let play1 =document.createElement('p')
-play1.id ='joga1'
+//let testeEmpate=0;
+let textoTurno =document.createElement('p');
+textoTurno.id ='textoDoturno';
+document.body.appendChild(textoTurno);
+const play1 =document.createElement('img');
+play1.setAttribute('src','../assets/img/player-goku.png');
+play1.id ='joga1';
 document.body.appendChild(play1);
-let play2 =document.createElement('p')
-play2.id ='joga2'
+const play2 =document.createElement('img');
+play2.setAttribute('src','../assets/img/player-vegeta.png');
+play2.id ='joga2';
 document.body.appendChild(play2);
 
 //VARIAVEIS GLOBAIS
@@ -15,38 +21,34 @@ document.body.appendChild(play2);
 
 //FUNÇÕES
 const turnoJogador =() =>{
-if( play1.style.display==='block'){
+    if( play2.style.display==='block'){
+       
+    play1.style.display='block'
+    play2.style.display='none';
+   
+    textoTurno.innerHTML =("Turno do jogador um")
+     document.getElementById ('textoDoturno').style.color = '#e76a24'; 
+}else{
     play1.style.display='none'
     play2.style.display='block'
-}else{
-    play1.style.display='block'
-    play2.style.display='none'
+    textoTurno.innerHTML =("Turno do jogador dois")
+    document.getElementById ('textoDoturno').style.color = '#1f2c4f'; 
 }
 }
+
 
 const checaVencedorDiagonais = (arrDiagonal) =>{
     let vencedor = 0;
     let countOne = 0;
     let countTwo = 0;
-    let ultimoJogador = 0;
     for(let i=0; i<arrDiagonal.length;i++){
-            if(arrDiagonal[i] == 0){
-                if(ultimoJogador == 1){
-                    countOne=0;
-                } else if(ultimoJogador == 2){
-                    countTwo=0;
-                }
-            }
-            if(arrDiagonal[i] == 1){
-                countTwo= 0;
-                countOne++;
-                ultimoJogador = 1;
-            }
-             if(arrDiagonal[i] == 2){
-                countOne = 0;
-                countTwo++;
-                ultimoJogador = 2;
-            }
+        if(arrDiagonal[i] == 1){
+            countTwo= 0;
+            countOne++;
+        } else if(arrDiagonal[i] == 2){
+            countOne = 0;
+            countTwo++;
+        }
         if(countOne == 4){
             console.log('vitoriaJogador1')
             vitoriaJogador1();
@@ -69,6 +71,7 @@ const codigoJogador = (jogador) =>{
     }
 }
 const mapear = () =>{
+
     let busca = document.querySelector('#tabela')
     let arrTabela = busca.childNodes;
     let newArr = [];
@@ -165,6 +168,17 @@ let contador =0;
     }
 }
 
+const empateJogadores =() =>{
+    console.log("empate")
+    audio[0].pause()
+    audio[3].play()
+    audio[3].volume = 0.1;
+    audio[3].currentTime = 2
+    setTimeout(() => {
+        audio[3].volume = 0.4;
+    }, 1700);
+}
+
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
@@ -177,7 +191,8 @@ const buscarElementlinha = (evt) =>{
          if(teste.firstChild===null){
         contadorJogador2=0;
         contadorJogador1=0;
-         }else if(teste.firstChild!==null){  
+         }else if(teste.firstChild!==null){ 
+
          let  valores= teste.firstChild.classList[1];
             if(valores=='jogador1'){
             contadorJogador1++;
@@ -198,7 +213,6 @@ const buscarElementlinha = (evt) =>{
     }  
 }
 
-
 //busca os elementos por coluna
 const buscarElementColuna = (evt)=>{
     let vitoria = undefined;
@@ -216,7 +230,7 @@ const buscarElementColuna = (evt)=>{
                                
                    vitoria = elementoColunatest(jogadores[coluna])
                 }          
-            } 
+                } 
     }
 }
 const elementoColunatest =(jogador)=>{
@@ -249,9 +263,7 @@ const vitoriaJogador1 = () => {
     setTimeout(() => {
         audio[2].volume = 0.4;
     }, 1700);
-    let divPai = document.querySelector('.container-vitoria')
-        divPai.classList.remove('hidden')
-    const divVitoria = document.querySelector('#vitoriaJogador1')
+    const divVitoria = document.querySelector('#vitoriaJogador2')
     divVitoria.classList.remove('hidden')
 }
 const vitoriaJogador2 = () => {
@@ -284,19 +296,23 @@ const colocarDisco = (evt) =>{
     let vitoria = undefined;
     let status = false;
     let destino = '';
-    let arr = [...evt.currentTarget.childNodes]; 
+    let arr = [...evt.currentTarget.childNodes];
+    
         arr = arr.reverse();
        for(let i=0;i<arr.length;i++){
         if(arr[i].lastElementChild == null){
             destino = arr[i];
             i=arr.length;
         }        
-       } 
-    status = criarDisco(destino,player);
+       }
+      
+      
+           status = criarDisco(destino,player);
+      
     if(status == true){
         player++;
     }
-    
+  
     vitoria = buscarElementlinha(evt);
     if(vitoria == undefined){
         vitoria = buscarElementColuna(evt);       
@@ -314,6 +330,7 @@ const colocarDisco = (evt) =>{
     turnoJogador();
 }
 const bemVindo = () =>{
+
     let buttonJogar = document.querySelector('.btn__jogar');
     let busca = document.querySelector('#conteudo__regras');
     let buscaBody = document.getElementsByTagName('body')[0];
@@ -326,17 +343,21 @@ const bemVindo = () =>{
             setTimeout(function(){
                 buscaBody.classList.remove('esconder');
                 busca.classList.add('hidden');
-                buscaBody.classList.add('fadeIn');    
+                buscaBody.classList.add('fadeIn');  
+            play1.style.display='block'
+            textoTurno.innerHTML= "Turno do jogador um" 
             },1000);
         } );
-       
+
 }
 const jogada = (evt) =>{
     colocarDisco(evt);
 }
+
 const criacaoTabela = () =>{ 
-  
+    
     for(let coluna = 0; coluna < 7; coluna++){
+       
             let novaColuna = document.createElement('div')
             novaColuna.classList.add(`colunas`)
             novaColuna.id = (`coluna${coluna}`)
@@ -351,7 +372,7 @@ const criacaoTabela = () =>{
             novaColuna.appendChild(novaCelula);          
         }
     }  
-   
+ 
     btnReset.addEventListener('click',reset)
 }
 const reset = () => {
