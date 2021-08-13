@@ -166,9 +166,7 @@ const testaEmpate = (evt) =>{
         }
 }
 }
-const empateJogadores =() =>{
-    console.log("empate")
-}
+
 //buscar elemento linha
 const buscarElementlinha = (evt) =>{
     let contadorJogador1=0;
@@ -189,7 +187,7 @@ const buscarElementlinha = (evt) =>{
             contadorJogador2=0;                
             }else if(valores=='jogador2'){
                 contadorJogador2++;
-                contadorJogador1-=contadorJogador1;
+                contadorJogador1=0;
             }
             if(contadorJogador1===4){
                 console.log("jogador1 ganhou")
@@ -265,7 +263,6 @@ const vitoriaJogador2 = () => {
     divVitoria.classList.remove('hidden')
 }
 const criarDisco = (destino,player) =>{
-   
     let disco = document.createElement('div');
         disco.classList.add('disco') 
         player%2 !== 0? disco.classList.add('jogador1') : disco.classList.add('jogador2');
@@ -275,15 +272,19 @@ const criarDisco = (destino,player) =>{
 const colocarDisco = (evt) =>{
     let status = false;
     let destino = '';
-    let arr = [...evt.currentTarget.childNodes]; 
+    let arr = [...evt.currentTarget.childNodes];
+    
         arr = arr.reverse();
        for(let i=0;i<arr.length;i++){
         if(arr[i].lastElementChild == null){
             destino = arr[i];
             i=arr.length;
         }        
-       } 
-    status = criarDisco(destino,player);
+       }
+      
+      
+           status = criarDisco(destino,player);
+      
     if(status == true){
         player++;
     }
